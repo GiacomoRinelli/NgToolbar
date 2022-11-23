@@ -1,3 +1,16 @@
-<h1>
-  Home Component Content
-</h1>
+<h1>Home Component Content</h1>
+
+<!-- create a button to hide some content -->
+<button (click)="showContent = !showContent">
+  {{ showContent ? "Hide" : "Show" }}
+</button>
+
+<!-- create a div to show/hide content -->
+<div *ngIf="showContent">
+  <ul>
+    <li *ngFor="let person of people">
+      {{ person.name }} | {{ person.age }} |
+      {{ person.job }}
+    </li>
+  </ul>
+</div>
