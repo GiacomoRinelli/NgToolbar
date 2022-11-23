@@ -1,11 +1,13 @@
 <h1>Home Component Content</h1>
 
 <nav>
-  <button type="button" (click)="toggle()">Show/Hide People</button>
+  <button type="button" (click)="toggle()">
+    {{ hidingButton ? "Hide People" : "Show People" }}
+  </button>
 </nav>
 
 <div [@openClose]="isOpen ? 'open' : 'closed'" class="open-close-container">
-  <p>{{ isOpen ? "Open" : "Closed" }}!</p>
+  <p>{{ isOpen ? "People :" : "Closed" }}</p>
   <div *ngIf="isOpen">
     <ul>
       <li *ngFor="let person of people">

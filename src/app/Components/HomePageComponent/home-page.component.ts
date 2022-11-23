@@ -24,18 +24,21 @@ import {
       state(
         'closed',
         style({
-          height: '100px',
+          height: '18px',
           opacity: 0.5,
           backgroundColor: 'blueviolet',
         })
       ),
       transition('open => closed', [animate('1s')]),
-      transition('closed => open', [animate('0.5s')]),
+      transition('closed => open', [animate('1s')]),
     ]),
   ],
 })
 export class HomePageComponent {
+  /* Variables */
   showContent = true;
+  hidingButton = true;
+  isOpen = true;
 
   people = [
     {
@@ -51,16 +54,40 @@ export class HomePageComponent {
       employed: true,
     },
     {
-      name: 'Elyse',
-      age: 25,
-      job: 'Musician',
+      name: 'Tonino',
+      age: 35,
+      job: 'Pescatore',
       employed: false,
+    },
+    {
+      name: 'Cosimo',
+      age: 15,
+      job: 'Direttore',
+      employed: false,
+    },
+    {
+      name: 'Giovanni',
+      age: 21,
+      job: 'Studente',
+      employed: false,
+    },
+    {
+      name: 'Mario',
+      age: 40,
+      job: 'Ingegnere',
+      employed: true,
+    },
+    {
+      name: 'Luigi',
+      age: 45,
+      job: 'Ingegnere',
+      employed: true,
     },
   ];
 
-  isOpen = true;
-
+  /* Functions */
   toggle() {
+    this.hidingButton = !this.hidingButton;
     this.isOpen = !this.isOpen;
   }
 }
