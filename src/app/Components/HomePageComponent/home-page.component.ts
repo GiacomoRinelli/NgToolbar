@@ -52,15 +52,41 @@ import {
       transition('open => closed', [animate('1s')]),
       transition('closed => open', [animate('2s')]),
     ]),
+    trigger('openCloseCalculator', [
+      state(
+        'open',
+        style({
+          height: '280px',
+          opacity: 1,
+          backgroundColor: '#3f51b5',
+        })
+      ),
+      state(
+        'closed',
+        style({
+          height: '0px',
+          opacity: 0.5,
+          backgroundColor: '#ff4081',
+        })
+      ),
+      transition('open => closed', [animate('1s')]),
+      transition('closed => open', [animate('2s')]),
+    ]),
   ],
 })
 export class HomePageComponent {
 
   /* Variables */
-  isSignUpButtonOpen = false;
   signUpButtonLabelState = false;
+  isSignUpButtonOpen = false;
+
   PeopleListButtonLabelState = false;
   isPeopleListShown = false;
+
+  calculatorButtonLabelState = false;
+  isCalculatorOpen = false;
+
+
 
   people = [
     {
@@ -118,15 +144,9 @@ export class HomePageComponent {
     this.isPeopleListShown = !this.isPeopleListShown;
   }
 
-  // hideRequiredControl = new FormControl(false);
-  // floatLabelControl = new FormControl('auto' as FloatLabelType);
-  // options = this._formBuilder.group({
-  //   hideRequired: this.hideRequiredControl,
-  //   floatLabel: this.floatLabelControl,
-  // });
-  // constructor(private _formBuilder: FormBuilder) {}
+  ShowOrHideCalculatorHandler() {
+    this.calculatorButtonLabelState = !this.calculatorButtonLabelState;
+    this.isCalculatorOpen = !this.isCalculatorOpen;
+  }
 
-  // getFloatLabelValue(): FloatLabelType {
-  //   return this.floatLabelControl.value || 'auto';
-  // }
 }

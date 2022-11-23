@@ -6,3 +6,7 @@
   display: inline-flex;
   vertical-align: middle;
 }
+
+.TextColorClass{
+  color: whitesmoke
+}

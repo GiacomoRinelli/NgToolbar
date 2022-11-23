@@ -1,4 +1,8 @@
 .spacer {
-  background-color: #ddd5d3;
+  background-color: #000000;
   flex: 1 1 auto;
+}
+
+.shareAndFollowStyle{
+  color: aliceblue;
 }

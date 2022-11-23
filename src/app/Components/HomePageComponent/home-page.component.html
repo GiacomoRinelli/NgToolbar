@@ -23,7 +23,7 @@
     <p>
       <mat-form-field appearance="fill" style="margin-left: 10px">
         <mat-label>Insert Password</mat-label>
-        <input matInput placeholder="Password" />
+        <input type="password" matInput placeholder="Password" />
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
       </mat-form-field>
     </p>
@@ -54,7 +54,7 @@
   "
   class="open-close-container"
 >
-  <div *ngIf="isPeopleListShown">
+  <div *ngIf="isPeopleListShown" class="TextColorClass">
     <p *ngFor="let person of people">
       <mat-icon class="iconInLine">account_circle</mat-icon>
       {{ person.name }} | {{ person.age }} |
@@ -62,4 +62,37 @@
     </p>
   </div>
 </div>
+
+<hr />
+
+<button
+  style="margin: 10px"
+  mat-raised-button
+  color="accent"
+  type="button"
+  (click)="ShowOrHideCalculatorHandler()"
+>
+  {{ calculatorButtonLabelState ? "Hide Calculator" : "Show Calculator" }}
+</button>
+
+<div
+  [@openCloseCalculator]="calculatorButtonLabelState ? 'open' : 'closed'"
+  class="open-close-container"
+>
+  <div *ngIf="isCalculatorOpen" class="TextColorClass">
+    <mat-form-field appearance="fill" style="margin: 10px">
+      <mat-label>First Adding</mat-label>
+      <input type="number" matInput placeholder="First Adding" />
+    </mat-form-field>
+    <mat-form-field appearance="fill" style="margin: 10px">
+      <mat-label>Second Adding</mat-label>
+      <input type="number" matInput placeholder="Second Adding" />
+    </mat-form-field>
+    <mat-form-field appearance="fill" style="margin: 10px">
+      <mat-label>Result</mat-label>
+      <input disabled type="Result" matInput placeholder="Result" />
+    </mat-form-field>
+  </div>
+</div>
+
 <hr />

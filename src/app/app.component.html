@@ -27,9 +27,11 @@ Quindi, da lì richiamo il componente app. App mi renderizza questo html, e da q
       <mat-icon>home</mat-icon> Home</a
     >
     <a mat-button routerLink="/follow"
-      ><mat-icon>thumb_up_alt</mat-icon>Follow</a
+      ><mat-icon class="shareAndFollowStyle">thumb_up_alt</mat-icon>Follow</a
     >
-    <a mat-button routerLink="/share"><mat-icon>share</mat-icon>Share</a>
+    <a mat-button routerLink="/share"
+      ><mat-icon class="shareAndFollowStyle">share</mat-icon>Share</a
+    >
   </mat-toolbar>
 </div>
 <router-outlet></router-outlet>
