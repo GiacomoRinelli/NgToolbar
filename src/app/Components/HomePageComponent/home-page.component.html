@@ -1,16 +1,17 @@
 <h1>Home Component Content</h1>
 
-<!-- create a button to hide some content -->
-<button (click)="showContent = !showContent">
-  {{ showContent ? "Hide" : "Show" }}
-</button>
+<nav>
+  <button type="button" (click)="toggle()">Show/Hide People</button>
+</nav>
 
-<!-- create a div to show/hide content -->
-<div *ngIf="showContent">
-  <ul>
-    <li *ngFor="let person of people">
-      {{ person.name }} | {{ person.age }} |
-      {{ person.job }}
-    </li>
-  </ul>
+<div [@openClose]="isOpen ? 'open' : 'closed'" class="open-close-container">
+  <p>{{ isOpen ? "Open" : "Closed" }}!</p>
+  <div *ngIf="isOpen">
+    <ul>
+      <li *ngFor="let person of people">
+        {{ person.name }} | {{ person.age }} |
+        {{ person.job }}
+      </li>
+    </ul>
+  </div>
 </div>
