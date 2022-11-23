@@ -7,7 +7,6 @@ import {
   transition,
 } from '@angular/animations';
 
-
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
@@ -54,9 +53,9 @@ import {
       transition('closed => open', [animate('2s')]),
     ]),
   ],
-
 })
 export class HomePageComponent {
+
   /* Variables */
   isSignUpButtonOpen = false;
   signUpButtonLabelState = false;
