@@ -17,15 +17,15 @@ Quindi, da lì richiamo il componente app. App mi renderizza questo html, e da q
   <a mat-raised-button color="accent" routerLink="/share">Share</a>
 
 -->
+<div class="spacer">
+  <mat-toolbar color="primary" class="mat-elevation-z6">
+    <span><mat-icon>eco</mat-icon>JackApp</span>
 
-<mat-toolbar color="primary" class="mat-elevation-z6">
-  <span><mat-icon>eco</mat-icon>JackApp</span>
+    <span class="spacer"></span>
 
-  <span class="spacer"></span>
-
-  <a mat-button routerLink="/home">Home</a>
-  <a mat-button routerLink="/follow">Follow</a>
-  <a mat-raised-button color="accent" routerLink="/share">Share</a>
-</mat-toolbar>
-
+    <a mat-raised-button color="accent" routerLink="/home">Home</a>
+    <a mat-button routerLink="/follow">Follow</a>
+    <a mat-button routerLink="/share">Share</a>
+  </mat-toolbar>
+</div>
 <router-outlet></router-outlet>

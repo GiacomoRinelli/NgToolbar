@@ -1,19 +1,64 @@
-<h1>Home Component Content</h1>
+<button
+  style="margin: 10px"
+  mat-raised-button
+  color="accent"
+  type="button"
+  (click)="ShowFormHandler()"
+>
+  {{ signUpButtonLabelState ? "Close Sign Up" : "Sign Up" }}
+</button>
 
-<nav>
-  <button type="button" (click)="toggle()">
-    {{ hidingButton ? "Hide People" : "Show People" }}
-  </button>
-</nav>
-
-<div [@openClose]="isOpen ? 'open' : 'closed'" class="open-close-container">
-  <p>{{ isOpen ? "People :" : "Closed" }}</p>
-  <div *ngIf="isOpen">
-    <ul>
-      <li *ngFor="let person of people">
-        {{ person.name }} | {{ person.age }} |
-        {{ person.job }}
-      </li>
-    </ul>
+<div
+  [@openCloseSignUp]="isSignUpButtonOpen ? 'open' : 'closed'"
+  class="open-close-container"
+>
+  <div *ngIf="isSignUpButtonOpen">
+    <p>
+      <mat-form-field appearance="fill" style="margin-top: 10px">
+        <mat-label>Insert Username</mat-label>
+        <input matInput placeholder="Username" />
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Insert Password</mat-label>
+        <input matInput placeholder="Password" />
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+    </p>
+    <button mat-raised-button color="warn">
+      <mat-icon>done</mat-icon>
+      <span>Submit</span>
+    </button>
   </div>
 </div>
+
+<hr />
+
+<button
+  style="margin: 10px"
+  mat-raised-button
+  color="accent"
+  type="button"
+  (click)="ShowOrHidePeopleHandler()"
+>
+  {{
+    PeopleListButtonLabelState ? "Hide Registerd Users" : "Show Registerd Users"
+  }}
+</button>
+
+<div
+  [@openCloseShowRegisteredUsers]="
+    PeopleListButtonLabelState ? 'open' : 'closed'
+  "
+  class="open-close-container"
+>
+  <div *ngIf="isPeopleListShown">
+    <p *ngFor="let person of people">
+      {{ person.name }} | {{ person.age }} |
+      {{ person.job }}
+    </p>
+  </div>
+</div>
+<hr />

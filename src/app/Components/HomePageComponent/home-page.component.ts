@@ -7,38 +7,61 @@ import {
   transition,
 } from '@angular/animations';
 
+
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css'],
   animations: [
-    trigger('openClose', [
+    trigger('openCloseSignUp', [
       state(
         'open',
         style({
-          height: '200px',
+          height: '280px',
           opacity: 1,
-          backgroundColor: '#3399FF',
+          backgroundColor: '#3f51b5',
         })
       ),
       state(
         'closed',
         style({
-          height: '18px',
+          height: '0px',
           opacity: 0.5,
-          backgroundColor: 'blueviolet',
+          backgroundColor: '#ff4081',
         })
       ),
       transition('open => closed', [animate('1s')]),
-      transition('closed => open', [animate('1s')]),
+      transition('closed => open', [animate('2s')]),
+    ]),
+    trigger('openCloseShowRegisteredUsers', [
+      state(
+        'open',
+        style({
+          height: '280px',
+          opacity: 1,
+          backgroundColor: '#3f51b5',
+        })
+      ),
+      state(
+        'closed',
+        style({
+          height: '0px',
+          opacity: 0.5,
+          backgroundColor: '#ff4081',
+        })
+      ),
+      transition('open => closed', [animate('1s')]),
+      transition('closed => open', [animate('2s')]),
     ]),
   ],
+
 })
 export class HomePageComponent {
   /* Variables */
-  showContent = true;
-  hidingButton = true;
-  isOpen = true;
+  isSignUpButtonOpen = false;
+  signUpButtonLabelState = false;
+  PeopleListButtonLabelState = false;
+  isPeopleListShown = false;
 
   people = [
     {
@@ -86,8 +109,25 @@ export class HomePageComponent {
   ];
 
   /* Functions */
-  toggle() {
-    this.hidingButton = !this.hidingButton;
-    this.isOpen = !this.isOpen;
+  ShowFormHandler() {
+    this.isSignUpButtonOpen = !this.isSignUpButtonOpen;
+    this.signUpButtonLabelState = !this.signUpButtonLabelState;
   }
+
+  ShowOrHidePeopleHandler() {
+    this.PeopleListButtonLabelState = !this.PeopleListButtonLabelState;
+    this.isPeopleListShown = !this.isPeopleListShown;
+  }
+
+  // hideRequiredControl = new FormControl(false);
+  // floatLabelControl = new FormControl('auto' as FloatLabelType);
+  // options = this._formBuilder.group({
+  //   hideRequired: this.hideRequiredControl,
+  //   floatLabel: this.floatLabelControl,
+  // });
+  // constructor(private _formBuilder: FormBuilder) {}
+
+  // getFloatLabelValue(): FloatLabelType {
+  //   return this.floatLabelControl.value || 'auto';
+  // }
 }

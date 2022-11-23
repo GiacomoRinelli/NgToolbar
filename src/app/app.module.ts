@@ -14,6 +14,8 @@ import { ShareComponent } from './Components/ShareComponent/share.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 /* Nelle declarations vengono dichiarati i componenti che vengono utilizzati all'interno dell'applicazione. */
 /* In questo caso, i componenti HomePageComponent, FollowComponent, ShareComponent viene utilizzato all'interno del componente AppComponent. */
@@ -33,6 +35,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
