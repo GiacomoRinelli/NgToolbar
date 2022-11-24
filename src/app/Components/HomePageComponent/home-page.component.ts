@@ -76,14 +76,14 @@ import {
 })
 export class HomePageComponent {
   /* Variables */
-  signUpButtonLabelState = false;
-  isSignUpButtonOpen = false;
+  signUpButtonLabelState: boolean = false;
+  isSignUpButtonOpen: boolean = false;
 
-  PeopleListButtonLabelState = false;
-  isPeopleListShown = false;
+  PeopleListButtonLabelState: boolean = false;
+  isPeopleListShown: boolean = false;
 
-  calculatorButtonLabelState = false;
-  isCalculatorOpen = false;
+  calculatorButtonLabelState: boolean = false;
+  isCalculatorOpen: boolean = false;
 
   people = [
     {
