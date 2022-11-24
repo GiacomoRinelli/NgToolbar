@@ -16,6 +16,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+/* Teximate Imports */
+import { TeximateModule } from 'ngx-teximate';
 
 /* Nelle declarations vengono dichiarati i componenti che vengono utilizzati all'interno dell'applicazione. */
 /* In questo caso, i componenti HomePageComponent, FollowComponent, ShareComponent viene utilizzato all'interno del componente AppComponent. */
@@ -37,6 +40,8 @@ import { MatInputModule } from '@angular/material/input';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    // TeximateModule
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

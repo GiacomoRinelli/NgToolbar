@@ -75,7 +75,6 @@ import {
   ],
 })
 export class HomePageComponent {
-
   /* Variables */
   signUpButtonLabelState = false;
   isSignUpButtonOpen = false;
@@ -85,8 +84,6 @@ export class HomePageComponent {
 
   calculatorButtonLabelState = false;
   isCalculatorOpen = false;
-
-
 
   people = [
     {
@@ -149,4 +146,41 @@ export class HomePageComponent {
     this.isCalculatorOpen = !this.isCalculatorOpen;
   }
 
+  /* Calculator variables */
+
+  FirstAdding: string = '0';
+  SecondAdding: string = '0';
+  OperationSign: string = '';
+
+  /* Functions for calculator */
+  FirstAddingHandler(event: any) {
+    this.FirstAdding = event.target.value;
+  }
+
+  SecondAddingHandler(event: any) {
+    this.SecondAdding = event.target.value;
+  }
+
+  OperationSignHandler(event: any) {
+    this.OperationSign = event.value;
+  }
+
+  ResultHandler() {
+    let result: number = 0;
+    switch (this.OperationSign) {
+      case 'add':
+        result = parseFloat(this.FirstAdding) + parseFloat(this.SecondAdding);
+        break;
+      case 'substract':
+        result = parseFloat(this.FirstAdding) - parseFloat(this.SecondAdding);
+        break;
+      case 'multiply':
+        result = parseFloat(this.FirstAdding) * parseFloat(this.SecondAdding);
+        break;
+      case 'divide':
+        result = parseFloat(this.FirstAdding) / parseFloat(this.SecondAdding);
+        break;
+    }
+    return result;
+  }
 }

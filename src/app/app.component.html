@@ -33,5 +33,16 @@ Quindi, da lì richiamo il componente app. App mi renderizza questo html, e da q
       ><mat-icon class="shareAndFollowStyle">share</mat-icon>Share</a
     >
   </mat-toolbar>
+
+  <!-- To fix later, this is the potential enter animated text
+   <div class="container mt-5">
+    <h2>
+      <teximate #teximate [text]="name" [enter]="enterAnimation"></teximate>
+    </h2>
+
+    <button class="btn btn-primary" (click)="teximate.enterPlayer.play()">
+      Play
+    </button>
+  </div> -->
 </div>
 <router-outlet></router-outlet>

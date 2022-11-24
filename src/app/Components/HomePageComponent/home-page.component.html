@@ -81,18 +81,44 @@
 >
   <div *ngIf="isCalculatorOpen" class="TextColorClass">
     <mat-form-field appearance="fill" style="margin: 10px">
-      <mat-label>First Adding</mat-label>
-      <input type="number" matInput placeholder="First Adding" />
+      <mat-label>First Operand</mat-label>
+      <input
+        type="text"
+        matInput
+        placeholder="First Operand"
+        (input)="FirstAddingHandler($event)"
+      />
     </mat-form-field>
     <mat-form-field appearance="fill" style="margin: 10px">
-      <mat-label>Second Adding</mat-label>
-      <input type="number" matInput placeholder="Second Adding" />
+      <mat-label>Second Operand</mat-label>
+      <input
+        type="text"
+        matInput
+        placeholder="Second Operand"
+        (input)="SecondAddingHandler($event)"
+      />
     </mat-form-field>
-    <mat-form-field appearance="fill" style="margin: 10px">
-      <mat-label>Result</mat-label>
-      <input disabled type="Result" matInput placeholder="Result" />
+    <mat-form-field appearance="fill">
+      <mat-label>Operation Sign</mat-label>
+      <mat-select (selectionChange)="OperationSignHandler($event)">
+        <mat-option value="add">+</mat-option>
+        <mat-option value="substract">-</mat-option>
+        <mat-option value="multiply">*</mat-option>
+        <mat-option value="divide">/</mat-option>
+      </mat-select>
     </mat-form-field>
+    <div>
+      <mat-form-field appearance="fill" color="accent" style="margin: 10px">
+        <input
+          type="text"
+          matInput
+          placeholder="Result"
+          disabled
+          value="{{ ResultHandler() }}"
+        />
+      </mat-form-field>
+    </div>
   </div>
 </div>
 
-<hr />
+<hr>
