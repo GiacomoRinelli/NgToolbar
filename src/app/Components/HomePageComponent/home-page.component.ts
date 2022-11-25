@@ -30,7 +30,7 @@ import {
         })
       ),
       transition('open => closed', [animate('1s')]),
-      transition('closed => open', [animate('2s')]),
+      transition('closed => open', [animate('1s')]),
     ]),
     trigger('openCloseShowRegisteredUsers', [
       state(
@@ -50,7 +50,7 @@ import {
         })
       ),
       transition('open => closed', [animate('1s')]),
-      transition('closed => open', [animate('2s')]),
+      transition('closed => open', [animate('1s')]),
     ]),
     trigger('openCloseCalculator', [
       state(
@@ -70,7 +70,7 @@ import {
         })
       ),
       transition('open => closed', [animate('1s')]),
-      transition('closed => open', [animate('2s')]),
+      transition('closed => open', [animate('1s')]),
     ]),
     trigger('openCloseTwoWaysBindingCalculator', [
       state(
@@ -90,7 +90,47 @@ import {
         })
       ),
       transition('open => closed', [animate('1s')]),
-      transition('closed => open', [animate('2s')]),
+      transition('closed => open', [animate('1s')]),
+    ]),
+    trigger('openCloseClaudioExercise', [
+      state(
+        'open',
+        style({
+          height: '400px',
+          opacity: 1,
+          backgroundColor: '#3f51b5',
+        })
+      ),
+      state(
+        'closed',
+        style({
+          height: '0px',
+          opacity: 0.5,
+          backgroundColor: '#ff4081',
+        })
+      ),
+      transition('open => closed', [animate('1s')]),
+      transition('closed => open', [animate('1s')]),
+    ]),
+    trigger('openCloseClaudiosContentExercise', [
+      state(
+        'open',
+        style({
+          height: '350px',
+          opacity: 1,
+          backgroundColor: '#8E8481',
+        })
+      ),
+      state(
+        'closed',
+        style({
+          height: '0px',
+          opacity: 0.5,
+          backgroundColor: 'yellow',
+        })
+      ),
+      transition('open => closed', [animate('1s')]),
+      transition('closed => open', [animate('1s')]),
     ]),
   ],
 })
@@ -107,6 +147,12 @@ export class HomePageComponent {
 
   twoWBCalculatorButtonLabelState: boolean = false;
   isTwoWBCalculatorOpen: boolean = false;
+
+  claudioExerciseButtonLabelState: boolean = false;
+  isClaudioExerciseOpen: boolean = false;
+
+  // claudioExerciseContentButtonLabalState: boolean = false;
+  // isClaudioExerciseContentOpen: boolean = false;
 
   people = [
     {
@@ -155,8 +201,8 @@ export class HomePageComponent {
 
   /* Buttons Functions */
   ShowFormHandler() {
-    this.isSignUpButtonOpen = !this.isSignUpButtonOpen;
     this.signUpButtonLabelState = !this.signUpButtonLabelState;
+    this.isSignUpButtonOpen = !this.isSignUpButtonOpen;
   }
 
   ShowOrHidePeopleHandler() {
@@ -173,6 +219,12 @@ export class HomePageComponent {
     this.twoWBCalculatorButtonLabelState =
       !this.twoWBCalculatorButtonLabelState;
     this.isTwoWBCalculatorOpen = !this.isTwoWBCalculatorOpen;
+  }
+
+  ShowOrHideClaudioExerciseHandler() {
+    this.claudioExerciseButtonLabelState =
+      !this.claudioExerciseButtonLabelState;
+    this.isClaudioExerciseOpen = !this.isClaudioExerciseOpen;
   }
 
   /* $Event Calculator variables */
@@ -244,4 +296,36 @@ export class HomePageComponent {
     }
     return result;
   }
+
+  //--------------------------------------------------------------------------------
+
+  /* Variables for Claudio Exercise */
+
+  isClaudioContentButtonOpen: boolean = false;
+  isClaudioContentButtonLabelState: boolean = false;
+  stringaDiInterpolazione: string = 'Sono una stringa di interpolazione';
+  isButtonDisabled: boolean = true;
+  contenutoTesto: string = '';
+
+  /* Functions for Claudio Exercise */
+  ShowOrHideClaudioContentButtonHandler() {
+    this.isClaudioContentButtonOpen = !this.isClaudioContentButtonOpen;
+    this.isClaudioContentButtonLabelState =
+      !this.isClaudioContentButtonLabelState;
+  }
+
+  inputTextHandler(event: any) {
+    this.contenutoTesto = event.target.value;
+    if (this.contenutoTesto.length > 0) {
+      this.isButtonDisabled = false;
+    } else {
+      this.isButtonDisabled = true;
+    }
+  }
+
+  buttonClickHandler() {
+    alert('Hai cliccato il bottone');
+  }
+
+  TWBInputText: string = '';
 }

@@ -179,12 +179,103 @@
       <mat-form-field appearance="fill" color="accent" style="margin: 10px">
         <input
           type="text"
-          matInput
+          color="accent"
           placeholder="Result"
           disabled
           value="{{ TWBResultHandler() }}"
         />
       </mat-form-field>
+    </div>
+  </div>
+</div>
+
+<hr />
+
+<!-- Esercizio Claudio -->
+
+<button
+  style="margin: 10px"
+  mat-raised-button
+  color="accent"
+  type="button"
+  (click)="ShowOrHideClaudioExerciseHandler()"
+>
+  {{
+    claudioExerciseButtonLabelState
+      ? "Hide Claudio's Exercise"
+      : "Show Claudio's Exercise"
+  }}
+</button>
+
+<div
+  [@openCloseClaudioExercise]="
+    claudioExerciseButtonLabelState ? 'open' : 'closed'
+  "
+  class="open-close-container"
+>
+  <div
+    [@openCloseClaudiosContentExercise]="
+      isClaudioContentButtonLabelState ? 'open' : 'closed'
+    "
+    class="open-close-container"
+  >
+    <div *ngIf="isClaudioExerciseOpen" class="TextColorClass">
+      <button
+        style="margin: 10px"
+        mat-raised-button
+        color="accent"
+        type="button"
+        (click)="ShowOrHideClaudioContentButtonHandler()"
+      >
+        {{ isClaudioContentButtonLabelState ? "Hide Content" : "Show Content" }}
+      </button>
+
+      <div *ngIf="isClaudioContentButtonOpen">
+        <p>
+          Exercise 1 : String Interpolation ---> {{ stringaDiInterpolazione }}
+        </p>
+        <p>
+          Exercise 2 : Property Binding
+          <mat-form-field appearance="fill" color="accent" style="margin: 10px">
+            <input
+              type="text"
+              matInput
+              placeholder="Input some text"
+              (input)="inputTextHandler($event)"
+            />
+          </mat-form-field>
+          <button
+            mat-raised-button
+            [disabled]="isButtonDisabled"
+            style="margin-left: 5px"
+          >
+            Simple Button
+          </button>
+        </p>
+        <p>
+          Exercise 3 : Event Binding
+          <button
+            mat-raised-button
+            color="accent"
+            style="margin-left: 5px"
+            (click)="buttonClickHandler()"
+          >
+            Click Me
+          </button>
+        </p>
+        <p>
+          Exercise 4 : Two-Way Binding
+          <mat-form-field appearance="fill" color="accent" style="margin: 10px">
+            <input
+              type="text"
+              matInput
+              placeholder="Input some text "
+              [(ngModel)]="TWBInputText"
+            />
+          </mat-form-field>
+        </p>
+        <h3>{{ TWBInputText }}</h3>
+      </div>
     </div>
   </div>
 </div>
