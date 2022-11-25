@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { NgModel } from '@angular/forms';
 
 import { AppRoutingModule } from './Routing/app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -39,6 +41,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

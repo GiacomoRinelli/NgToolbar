@@ -65,6 +65,8 @@
 
 <hr />
 
+<!-- $Event Calculator -->
+
 <button
   style="margin: 10px"
   mat-raised-button
@@ -115,6 +117,72 @@
           placeholder="Result"
           disabled
           value="{{ ResultHandler() }}"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+
+<hr />
+
+<!-- Two Ways Binding Calculator -->
+
+<button
+  style="margin: 10px"
+  mat-raised-button
+  color="accent"
+  type="button"
+  (click)="ShowOrHideTwoWBCalculatorHandler()"
+>
+  {{
+    twoWBCalculatorButtonLabelState
+      ? "Hide Two Ways Binding Calculator"
+      : "Show Two Ways Binding Calculator"
+  }}
+</button>
+
+<div
+  [@openCloseTwoWaysBindingCalculator]="
+    twoWBCalculatorButtonLabelState ? 'open' : 'closed'
+  "
+  class="open-close-container"
+>
+  <div *ngIf="isTwoWBCalculatorOpen" class="TextColorClass">
+    <mat-form-field appearance="fill" style="margin: 10px">
+      <mat-label>First Operand</mat-label>
+      <input
+        type="text"
+        matInput
+        placeholder="First Operand"
+        [(ngModel)]="TWBFirstAdding"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill" style="margin: 10px">
+      <mat-label>Second Operand</mat-label>
+      <input
+        type="text"
+        matInput
+        placeholder="Second Operand"
+        [(ngModel)]="TWBSecondAdding"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Operation Sign</mat-label>
+      <mat-select [(ngModel)]="TWBOperationSign">
+        <mat-option value="add">+</mat-option>
+        <mat-option value="substract">-</mat-option>
+        <mat-option value="multiply">*</mat-option>
+        <mat-option value="divide">/</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div>
+      <mat-form-field appearance="fill" color="accent" style="margin: 10px">
+        <input
+          type="text"
+          matInput
+          placeholder="Result"
+          disabled
+          value="{{ TWBResultHandler() }}"
         />
       </mat-form-field>
     </div>

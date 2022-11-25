@@ -72,6 +72,26 @@ import {
       transition('open => closed', [animate('1s')]),
       transition('closed => open', [animate('2s')]),
     ]),
+    trigger('openCloseTwoWaysBindingCalculator', [
+      state(
+        'open',
+        style({
+          height: '280px',
+          opacity: 1,
+          backgroundColor: '#3f51b5',
+        })
+      ),
+      state(
+        'closed',
+        style({
+          height: '0px',
+          opacity: 0.5,
+          backgroundColor: '#ff4081',
+        })
+      ),
+      transition('open => closed', [animate('1s')]),
+      transition('closed => open', [animate('2s')]),
+    ]),
   ],
 })
 export class HomePageComponent {
@@ -84,6 +104,9 @@ export class HomePageComponent {
 
   calculatorButtonLabelState: boolean = false;
   isCalculatorOpen: boolean = false;
+
+  twoWBCalculatorButtonLabelState: boolean = false;
+  isTwoWBCalculatorOpen: boolean = false;
 
   people = [
     {
@@ -130,7 +153,7 @@ export class HomePageComponent {
     },
   ];
 
-  /* Functions */
+  /* Buttons Functions */
   ShowFormHandler() {
     this.isSignUpButtonOpen = !this.isSignUpButtonOpen;
     this.signUpButtonLabelState = !this.signUpButtonLabelState;
@@ -146,13 +169,23 @@ export class HomePageComponent {
     this.isCalculatorOpen = !this.isCalculatorOpen;
   }
 
-  /* Calculator variables */
+  ShowOrHideTwoWBCalculatorHandler() {
+    this.twoWBCalculatorButtonLabelState =
+      !this.twoWBCalculatorButtonLabelState;
+    this.isTwoWBCalculatorOpen = !this.isTwoWBCalculatorOpen;
+  }
 
+  /* $Event Calculator variables */
   FirstAdding: string = '0';
   SecondAdding: string = '0';
   OperationSign: string = '';
 
-  /* Functions for calculator */
+  /* Variables for TWBinding Calculator */
+  TWBFirstAdding: string = '0';
+  TWBSecondAdding: string = '0';
+  TWBOperationSign: string = '';
+
+  /* Functions for $event calculator */
   FirstAddingHandler(event: any) {
     this.FirstAdding = event.target.value;
   }
@@ -179,6 +212,34 @@ export class HomePageComponent {
         break;
       case 'divide':
         result = parseFloat(this.FirstAdding) / parseFloat(this.SecondAdding);
+        break;
+    }
+    return result;
+  }
+
+  /* Functions for TWBinding Calculator */
+
+  /* As we can see, the main difference between using a TWBinding and a $event
+     is in the fact that we use 3 less functions to get the same result */
+
+  TWBResultHandler() {
+    let result: number = 0;
+    switch (this.TWBOperationSign) {
+      case 'add':
+        result =
+          parseFloat(this.TWBFirstAdding) + parseFloat(this.TWBSecondAdding);
+        break;
+      case 'substract':
+        result =
+          parseFloat(this.TWBFirstAdding) - parseFloat(this.TWBSecondAdding);
+        break;
+      case 'multiply':
+        result =
+          parseFloat(this.TWBFirstAdding) * parseFloat(this.TWBSecondAdding);
+        break;
+      case 'divide':
+        result =
+          parseFloat(this.TWBFirstAdding) / parseFloat(this.TWBSecondAdding);
         break;
     }
     return result;
