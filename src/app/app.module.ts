@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './Routing/app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -17,6 +16,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { LogInComponent } from './Components/LogInComponent/log-in.component';
+import { LogInFormComponent } from './Components/LogInComponent/LogInComponent/log-in-form.component';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
+import { MatStepperModule } from '@angular/material/stepper';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatNativeDateModule } from '@angular/material/core';
+import { HttpClientModule } from '@angular/common/http';
 
 /* Nelle declarations vengono dichiarati i componenti che vengono utilizzati all'interno dell'applicazione. */
 /* In questo caso, i componenti HomePageComponent, FollowComponent, ShareComponent viene utilizzato all'interno del componente AppComponent. */
@@ -28,6 +36,8 @@ import { MatSelectModule } from '@angular/material/select';
     HomePageComponent,
     FollowComponent,
     ShareComponent,
+    LogInComponent,
+    LogInFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,8 +50,15 @@ import { MatSelectModule } from '@angular/material/select';
     MatInputModule,
     MatSelectModule,
     FormsModule,
+    MatDividerModule,
+    MatCardModule,
+    MatListModule,
+    MatStepperModule,
+    ReactiveFormsModule,
+    MatNativeDateModule,
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent, LogInComponent],
 })
 export class AppModule {}

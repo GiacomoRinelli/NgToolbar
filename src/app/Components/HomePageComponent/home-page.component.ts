@@ -36,7 +36,6 @@ import {
       state(
         'open',
         style({
-          height: '280px',
           opacity: 1,
           backgroundColor: '#3f51b5',
         })
@@ -56,7 +55,6 @@ import {
       state(
         'open',
         style({
-          height: '280px',
           opacity: 1,
           backgroundColor: '#3f51b5',
         })
@@ -151,51 +149,14 @@ export class HomePageComponent {
   claudioExerciseButtonLabelState: boolean = false;
   isClaudioExerciseOpen: boolean = false;
 
-  // claudioExerciseContentButtonLabalState: boolean = false;
-  // isClaudioExerciseContentOpen: boolean = false;
-
   people = [
     {
       name: 'John',
-      age: 25,
-      job: 'Designer',
-      employed: true,
+      password: '123',
     },
     {
       name: 'Jill',
-      age: 30,
-      job: 'Engineer',
-      employed: true,
-    },
-    {
-      name: 'Tonino',
-      age: 35,
-      job: 'Pescatore',
-      employed: false,
-    },
-    {
-      name: 'Cosimo',
-      age: 15,
-      job: 'Direttore',
-      employed: false,
-    },
-    {
-      name: 'Giovanni',
-      age: 21,
-      job: 'Studente',
-      employed: false,
-    },
-    {
-      name: 'Mario',
-      age: 40,
-      job: 'Ingegnere',
-      employed: true,
-    },
-    {
-      name: 'Luigi',
-      age: 45,
-      job: 'Ingegnere',
-      employed: true,
+      password: '456',
     },
   ];
 
@@ -248,6 +209,26 @@ export class HomePageComponent {
 
   OperationSignHandler(event: any) {
     this.OperationSign = event.value;
+  }
+
+  /* Form Variables And Functions */
+
+  userName: string = '';
+  password: string = '';
+
+  userNameHandler(event: any) {
+    this.userName = event.target.value;
+  }
+
+  passwordHandler(event: any) {
+    this.password = event.target.value;
+  }
+
+  submitHandler() {
+    this.people.push({
+      name: this.userName,
+      password: this.password,
+    });
   }
 
   ResultHandler() {
@@ -328,4 +309,17 @@ export class HomePageComponent {
   }
 
   TWBInputText: string = '';
+
+  /* Variables for Claudio's lecture on 28/11/2022 */
+  hasFormBegan: boolean = false;
+  statusChanged: boolean = true;
+
+  changeStatus() {
+    this.statusChanged = !this.statusChanged;
+  }
+
+  colorState: boolean = true;
+  changeColorState() {
+    this.colorState = !this.colorState;
+  }
 }

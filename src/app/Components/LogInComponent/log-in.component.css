@@ -1,0 +1,14 @@
+.example-stepper {
+  margin-top: 8px !important;
+  background-color: #C3C3C3;;
+}
+
+.mat-mdc-form-field {
+  margin-top: 16px !important;
+}
+
+.example-card {
+  max-width: 400px;
+  background-color: #424242;
+  color: aliceblue;
+}

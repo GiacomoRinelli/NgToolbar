@@ -1,3 +1,5 @@
+<!-- Form submit using single states for every input -->
+
 <button
   style="margin: 10px"
   mat-raised-button
@@ -16,18 +18,30 @@
     <p>
       <mat-form-field appearance="fill" style="margin: 10px">
         <mat-label>Insert Username</mat-label>
-        <input matInput placeholder="Username" />
+        <input
+          matInput
+          (input)="userNameHandler($event)"
+          placeholder="Username"
+        />
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
       </mat-form-field>
-    </p>
-    <p>
       <mat-form-field appearance="fill" style="margin-left: 10px">
         <mat-label>Insert Password</mat-label>
-        <input type="password" matInput placeholder="Password" />
+        <input
+          type="password"
+          (input)="passwordHandler($event)"
+          matInput
+          placeholder="Password"
+        />
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
       </mat-form-field>
     </p>
-    <button mat-raised-button color="warn" style="margin-left: 10px">
+    <button
+      mat-raised-button
+      color="warn"
+      style="margin-left: 10px"
+      (click)="submitHandler()"
+    >
       <mat-icon>done</mat-icon>
       <span>Submit</span>
     </button>
@@ -55,11 +69,13 @@
   class="open-close-container"
 >
   <div *ngIf="isPeopleListShown" class="TextColorClass">
-    <p *ngFor="let person of people">
+    <mat-list *ngFor="let person of people">
       <mat-icon class="iconInLine">account_circle</mat-icon>
-      {{ person.name }} | {{ person.age }} |
-      {{ person.job }}
-    </p>
+      <mat-list-item
+        >User : {{ person.name }} | Password : {{ person.password }}
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
   </div>
 </div>
 
@@ -281,3 +297,36 @@
 </div>
 
 <hr />
+
+<!-- <button mat-raised-button color="warn" (click)="changeStatus()">
+  Cambia Stato
+</button>
+
+<div>
+  <h1>This is the initial block</h1>
+</div>
+<div></div>
+<div ng-template #elseBlock>
+  <input
+    type="text"
+    mat-input
+    placeholder="Color switch"
+    *ngStyle="
+      colorState
+        ? { 'background-color': 'red' }
+        : { 'background-color': 'blue' }
+    "
+  />
+</div>-->
+<!--
+   <input
+    type="text"
+    mat-input
+    placeholder="Color switch"
+    *ngStyle="
+      colorState
+        ? { 'background-color': 'red' }
+        : { 'background-color': 'blue' }
+    "
+  />
+-->

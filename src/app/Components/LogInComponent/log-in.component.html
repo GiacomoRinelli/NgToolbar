@@ -1,0 +1,95 @@
+<mat-stepper
+  class="example-stepper"
+  [orientation]="(stepperOrientation | async)!"
+>
+  <mat-step [stepControl]="firstFormGroup" label="Username">
+    <form [formGroup]="firstFormGroup">
+      <mat-form-field appearance="fill">
+        <mat-label>Username</mat-label>
+        <input
+          matInput
+          placeholder="Insert Username"
+          formControlName="firstCtrl"
+          required
+        />
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" label="Password">
+    <form [formGroup]="secondFormGroup">
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          type="password"
+          formControlName="secondCtrl"
+          placeholder="Insert Password"
+          required
+        />
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="thirdFormGroup" label="Job">
+    <form [formGroup]="thirdFormGroup">
+      <mat-form-field appearance="fill">
+        <mat-label>Job</mat-label>
+        <input
+          matInput
+          formControlName="thirdCtrl"
+          placeholder="Insert Job"
+          required
+        />
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Sign In</ng-template>
+    <div>
+      <button
+        mat-raised-button
+        matStepperPrevious
+        color="warn"
+        (click)="addUserHandler()"
+      >
+        Register
+      </button>
+    </div>
+  </mat-step>
+</mat-stepper>
+
+<hr />
+
+<div style="margin: 15px">
+  <p *ngFor="let regUser of registeredUsers">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Username : {{ regUser.userName }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Password : {{ regUser.password }}</p>
+        <p>Job : {{ regUser.job }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="accent" style="margin: 5px">
+          <mat-icon>edit</mat-icon>
+          Edit
+        </button>
+
+        <button mat-raised-button color="primary">
+          <mat-icon>delete</mat-icon>Delete
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </p>
+</div>

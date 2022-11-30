@@ -5,15 +5,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from '../Components/HomePageComponent/home-page.component';
 import { FollowComponent } from '../Components/FollowComponent/follow.component';
 import { ShareComponent } from '../Components/ShareComponent/share.component';
+import { LogInComponent } from '../Components/LogInComponent/log-in.component';
 
 /* path: tutto ciò che viene dopo lo slash nello url. Una volta che mi trovo su quella specifica url
    viene renderizzato esattamente il contenuto del componente corrispondente.
    Se mi trovo su /home , avrò le informazioni riguardanti il componente HomePageComponent */
 
 const routes: Routes = [
-  { path: 'home', component: HomePageComponent },
+  { path: '', component: HomePageComponent },
   { path: 'follow', component: FollowComponent },
   { path: 'share', component: ShareComponent },
+  { path: 'login', component: LogInComponent },
 ];
 
 /* Roba abbastanza standard da impostare */
