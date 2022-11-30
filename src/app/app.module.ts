@@ -16,8 +16,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { LogInComponent } from './Components/LogInComponent/log-in.component';
-import { LogInFormComponent } from './Components/LogInComponent/LogInComponent/log-in-form.component';
+import { SignUpComponent } from './Components/SignUpComponent/log-in.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
@@ -36,8 +35,7 @@ import { HttpClientModule } from '@angular/common/http';
     HomePageComponent,
     FollowComponent,
     ShareComponent,
-    LogInComponent,
-    LogInFormComponent,
+    SignUpComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,6 +57,6 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent, LogInComponent],
+  bootstrap: [AppComponent, SignUpComponent],
 })
 export class AppModule {}

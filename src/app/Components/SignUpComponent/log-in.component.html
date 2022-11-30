@@ -54,42 +54,44 @@
     </form>
   </mat-step>
   <mat-step>
-    <ng-template matStepLabel>Sign In</ng-template>
+    <ng-template matStepLabel>Sign Up</ng-template>
     <div>
       <button
         mat-raised-button
         matStepperPrevious
-        color="warn"
+        color="accent"
         (click)="addUserHandler()"
       >
+        <mat-icon>done_outline</mat-icon>
         Register
       </button>
     </div>
   </mat-step>
 </mat-stepper>
 
-<hr />
-
 <div style="margin: 15px">
   <p *ngFor="let regUser of registeredUsers">
-    <mat-card class="example-card">
-      <mat-card-header>
-        <mat-card-title>Username : {{ regUser.userName }}</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <p>Password : {{ regUser.password }}</p>
-        <p>Job : {{ regUser.job }}</p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-raised-button color="accent" style="margin: 5px">
-          <mat-icon>edit</mat-icon>
-          Edit
-        </button>
-
-        <button mat-raised-button color="primary">
-          <mat-icon>delete</mat-icon>Delete
-        </button>
-      </mat-card-actions>
-    </mat-card>
+    <body>
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>Username : {{ regUser.userName }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Password : {{ regUser.password }}</p>
+          <p>Job : {{ regUser.job }}</p>
+        </mat-card-content>
+        <mat-card-footer>
+          <mat-card-actions>
+            <button mat-raised-button color="accent" style="margin: 5px">
+              <mat-icon>edit</mat-icon>
+              Edit
+            </button>
+            <button mat-raised-button color="primary">
+              <mat-icon>delete</mat-icon>Delete
+            </button>
+          </mat-card-actions>
+        </mat-card-footer>
+      </mat-card>
+    </body>
   </p>
 </div>
