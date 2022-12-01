@@ -20,13 +20,18 @@ export class SignUpComponent {
   thirdFormGroup = this._formBuilder.group({
     thirdCtrl: ['', Validators.required],
   });
+  fourthFormGroup = this._formBuilder.group({
+    fourthCtrl: ['', Validators.required],
+  });
+
   stepperOrientation: Observable<StepperOrientation>;
 
   registeredUsers = [
     {
       userName: 'John195',
       password: '123456',
-      job: 'Developer',
+      birthDay: '01/01/1950',
+      email: 'johndoe@gmail.com',
     },
   ];
 
@@ -34,7 +39,8 @@ export class SignUpComponent {
     this.registeredUsers.push({
       userName: this.firstFormGroup.value.firstCtrl as string,
       password: this.secondFormGroup.value.secondCtrl as string,
-      job: this.thirdFormGroup.value.thirdCtrl as string,
+      birthDay: this.thirdFormGroup.value.thirdCtrl as string,
+      email: this.fourthFormGroup.value.fourthCtrl as string,
     });
   }
 

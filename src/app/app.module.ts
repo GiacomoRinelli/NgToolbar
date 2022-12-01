@@ -24,6 +24,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 /* Nelle declarations vengono dichiarati i componenti che vengono utilizzati all'interno dell'applicazione. */
 /* In questo caso, i componenti HomePageComponent, FollowComponent, ShareComponent viene utilizzato all'interno del componente AppComponent. */
@@ -55,6 +56,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     MatNativeDateModule,
     HttpClientModule,
+    MatDatepickerModule,
   ],
   providers: [],
   bootstrap: [AppComponent, SignUpComponent],
