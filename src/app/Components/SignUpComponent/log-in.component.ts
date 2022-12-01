@@ -5,6 +5,13 @@ import { StepperOrientation } from '@angular/material/stepper';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+type User = {
+  userName: string;
+  password: string;
+  birthDay: Date;
+  email: string;
+};
+
 @Component({
   selector: 'app-log-in',
   templateUrl: './log-in.component.html',
@@ -18,7 +25,7 @@ export class SignUpComponent {
     secondCtrl: ['', Validators.required],
   });
   thirdFormGroup = this._formBuilder.group({
-    thirdCtrl: ['', Validators.required],
+    thirdCtrl: [new Date(), Validators.required],
   });
   fourthFormGroup = this._formBuilder.group({
     fourthCtrl: ['', Validators.required],
@@ -26,11 +33,11 @@ export class SignUpComponent {
 
   stepperOrientation: Observable<StepperOrientation>;
 
-  registeredUsers = [
+  registeredUsers: User[] = [
     {
       userName: 'John195',
       password: '123456',
-      birthDay: '01/01/1950',
+      birthDay: new Date(1950, 1, 1),
       email: 'johndoe@gmail.com',
     },
   ];
@@ -39,7 +46,7 @@ export class SignUpComponent {
     this.registeredUsers.push({
       userName: this.firstFormGroup.value.firstCtrl as string,
       password: this.secondFormGroup.value.secondCtrl as string,
-      birthDay: this.thirdFormGroup.value.thirdCtrl as string,
+      birthDay: this.thirdFormGroup.value.thirdCtrl ?? new Date(),
       email: this.fourthFormGroup.value.fourthCtrl as string,
     });
   }

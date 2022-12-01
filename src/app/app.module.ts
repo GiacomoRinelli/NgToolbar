@@ -6,8 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 /* Components Imports (Stesso ragionamento dello using per ciccio sciarpio) */
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './Components/HomePageComponent/home-page.component';
-import { FollowComponent } from './Components/FollowComponent/follow.component';
-import { ShareComponent } from './Components/ShareComponent/share.component';
+import { LogInComponent } from './Components/LogInComponent/log-in.component';
 
 /* Angular Material Imports (Ang mat è una libreria da importare, per fare roba esteticamente più figa)*/
 import { MatIconModule } from '@angular/material/icon';
@@ -25,6 +24,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { ProfileComponent } from './Components/ProfileComponent/profile.component';
+import { ShopComponent } from './Components/ShopComponent/shop.component';
 
 /* Nelle declarations vengono dichiarati i componenti che vengono utilizzati all'interno dell'applicazione. */
 /* In questo caso, i componenti HomePageComponent, FollowComponent, ShareComponent viene utilizzato all'interno del componente AppComponent. */
@@ -34,9 +35,10 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
   declarations: [
     AppComponent,
     HomePageComponent,
-    FollowComponent,
-    ShareComponent,
     SignUpComponent,
+    LogInComponent,
+    ProfileComponent,
+    ShopComponent,
   ],
   imports: [
     BrowserModule,

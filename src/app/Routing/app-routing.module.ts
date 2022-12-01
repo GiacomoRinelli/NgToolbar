@@ -3,8 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 /* Importo i componenti che voglio utilizzare all'interno del mio sistema di routing */
 import { HomePageComponent } from '../Components/HomePageComponent/home-page.component';
-import { FollowComponent } from '../Components/FollowComponent/follow.component';
-import { ShareComponent } from '../Components/ShareComponent/share.component';
+import { ProfileComponent } from '../Components/ProfileComponent/profile.component';
+import { ShopComponent } from '../Components/ShopComponent/shop.component';
 import { SignUpComponent } from '../Components/SignUpComponent/log-in.component';
 
 /* path: tutto ciò che viene dopo lo slash nello url. Una volta che mi trovo su quella specifica url
@@ -13,8 +13,8 @@ import { SignUpComponent } from '../Components/SignUpComponent/log-in.component'
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
-  { path: 'follow', component: FollowComponent },
-  { path: 'share', component: ShareComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'shop', component: ShopComponent },
   { path: 'login', component: SignUpComponent },
 ];
 

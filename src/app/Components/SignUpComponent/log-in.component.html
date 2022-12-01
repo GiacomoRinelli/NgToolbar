@@ -5,7 +5,7 @@
   <mat-step [stepControl]="firstFormGroup" label="Username">
     <form [formGroup]="firstFormGroup">
       <mat-form-field appearance="fill">
-        <mat-label>Username</mat-label>
+        <mat-label >Username</mat-label>
         <input
           matInput
           placeholder="Insert Username"
@@ -99,7 +99,7 @@
         <mat-card-content>
           <p>Password : {{ regUser.password }}</p>
           <p>Email : {{ regUser.email }}</p>
-          <p>BirthDay : {{ regUser.birthDay }}</p>
+          <p>BirthDay : {{ regUser.birthDay.toLocaleDateString() }}</p>
         </mat-card-content>
         <mat-card-footer>
           <mat-card-actions>

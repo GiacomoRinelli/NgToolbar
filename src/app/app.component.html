@@ -1,29 +1,8 @@
-<!-- Componente "principale" che viene renderizzato. Perchè principale è tra virgolette ?
-Perchè in realtà parte tutto da index.html (vedi riga 14, dove richiamo il componente app-root)
-Quindi, da lì richiamo il componente app. App mi renderizza questo html, e da qui faccio il cazzo che voglio.
-
-
- Imposto la struttura della mia toolbar utilizzando material angular. Come renderizzo questa toolbar?
- Scrivendo <mat-toolbar></mat-toolbar>  (color e class sono attributi di mat-toolbar)
-
-  <span><mat-icon>eco</mat-icon>JackApp</span> -> Questo è un elemento figlio di mat-toolbar,
-                                                  ed è banalmente un testo con un'icona.
-
-  Questi tre invece sono bottoni figli di mat-toolbar, che hanno come attributo routerLink.
-  Questo routerLink mi permette di navigare tra le pagine che ho definito in app-routing.module.ts
-
-  <a mat-button routerLink="/home">Home</a>
-  <a mat-button routerLink="/follow">Follow</a>
-  <a mat-raised-button color="accent" routerLink="/share">Share</a>
-
--->
-
 <div class="spacer">
-  <div id="stars"></div>
-  <div id="stars2"></div>
-  <div id="stars3"></div>
-  <mat-toolbar color="primary" class="mat-elevation-z6">
-    <span><mat-icon>eco</mat-icon>Betazon</span>
+  <mat-toolbar>
+    <a class="betazonLinkClass" routerLink="">
+      <mat-icon>eco</mat-icon>Betazon
+    </a>
 
     <span class="spacer"></span>
 
@@ -34,13 +13,14 @@ Quindi, da lì richiamo il componente app. App mi renderizza questo html, e da q
       <mat-icon class="shareAndFollowStyle">arrow_drop_down_circle</mat-icon>
       Sign Up</a
     >
-    <a mat-button routerLink="/follow"
-      ><mat-icon class="shareAndFollowStyle">thumb_up_alt</mat-icon>Follow</a
+    <a mat-button routerLink="/shop"
+      ><mat-icon class="shareAndFollowStyle">shopping_cart</mat-icon>Shop</a
     >
-    <a mat-button routerLink="/share"
-      ><mat-icon class="shareAndFollowStyle">share</mat-icon>Share</a
+    <a mat-button routerLink="/profile"
+      ><mat-icon class="shareAndFollowStyle">person</mat-icon>Profile</a
     >
   </mat-toolbar>
 </div>
 
 <router-outlet></router-outlet>
+
