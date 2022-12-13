@@ -2,13 +2,14 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './Routing/app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-/* Components Imports (Stesso ragionamento dello using per ciccio sciarpio) */
+import { HttpClientModule } from '@angular/common/http';
+/* Components Imports */
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './Components/HomePageComponent/home-page.component';
 import { LogInComponent } from './Components/LogInComponent/log-in.component';
-
-/* Angular Material Imports (Ang mat è una libreria da importare, per fare roba esteticamente più figa)*/
+import { ProfileComponent } from './Components/ProfileComponent/profile.component';
+import { ShopComponent } from './Components/ShopComponent/shop.component';
+/* Angular Material Imports */
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -22,14 +23,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatStepperModule } from '@angular/material/stepper';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
-import { HttpClientModule } from '@angular/common/http';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { ProfileComponent } from './Components/ProfileComponent/profile.component';
-import { ShopComponent } from './Components/ShopComponent/shop.component';
-
-/* Nelle declarations vengono dichiarati i componenti che vengono utilizzati all'interno dell'applicazione. */
-/* In questo caso, i componenti HomePageComponent, FollowComponent, ShareComponent viene utilizzato all'interno del componente AppComponent. */
-/* Negli imports vengono dichiarati i pacchetti che andremo ad utilizzare */
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -59,6 +54,8 @@ import { ShopComponent } from './Components/ShopComponent/shop.component';
     MatNativeDateModule,
     HttpClientModule,
     MatDatepickerModule,
+    MatProgressBarModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent, SignUpComponent],

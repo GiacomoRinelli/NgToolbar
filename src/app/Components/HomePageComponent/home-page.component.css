@@ -1,12 +1,93 @@
-.spacer {
-  flex: 1 1 auto;
+button {
+  position: absolute;
+  border: 2px solid white;
+  background: transparent;
+  font-family: "Roboto", sans-serif;
+  color: white;
+  width: 450px;
+  height: 90px;
+  font-size: 2em;
+  border-radius: 5px;
+  opacity: 0.5;
+  top: 60vh;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  transition: 0.3s;
 }
 
-.iconInLine{
-  display: inline-flex;
-  vertical-align: middle;
+button:hover {
+  border: 2px solid #104f55;
+  background-color: rgba(365, 365, 365, 0.5);
+  cursor: pointer;
+  color: #104f55;
+  opacity: 0.1;
+  transition: 0.3s;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-.TextColorClass{
-  color: whitesmoke
+.header {
+  justify-content: center;
+  margin: auto;
+  align-items: center;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Roboto", sans-serif;
+  font-weight: 200;
+  color: white;
+  font-size: 8em;
+}
+
+#head5 {
+  -webkit-animation: finalFade 1 5s ease-in;
+  -moz-animation: finalFade 1 5s ease-in;
+  -o-animation: finalFade 1 5s ease-in;
+  animation: finalFade 1 5s ease-in;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-delay: 22s;
+  -moz-animation-delay: 22s;
+  -o-animation-delay: 22s;
+  animation-delay: 22s;
+}
+
+/* Betazon Text */
+
+.waviy {
+  position: absolute;
+  margin-left: 7%;
+  
+}
+.waviy span {
+  margin : auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 200;
+  color: white;
+  font-size: 1em;
+  /* position: relative; */
+  display: inline-block;
+  color: #fff;
+  text-transform: uppercase;
+  animation: flip 3s infinite;
+  animation-delay: calc(0.2s * var(--i));
+}
+@keyframes flip {
+  0%,
+  40% {
+    transform: rotateY(360deg);
+  }
+}
+
+.joinUsDivClass {
+  display: flex;
+  justify-content: center;
+  margin: auto;
 }

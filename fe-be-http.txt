@@ -1,0 +1,40 @@
+Chiamate http verso il nostro be
+
+In appmodule importiamo HttpClientModule da @angular/common/http
+importiamo map from rxjs/operators
+
+In appcomponent importa il servizio che hai creato e nel costruttore inizializza il servizio
+
+---------------------------------------
+Get
+
+employees : Impiegato[] = [];
+
+constructor(private http: HttpService) { }
+
+TestHttpGet() {
+this.http.get()("http://localhost:7035/Api/impiegati")
+          .pipe(map((response: Impiegato[]) => return response))
+          .subscribe((response) => {
+            this.employees = response;
+          });
+}
+
+In appcomponent.html inserisci un bottone che al click chiama il metodo TestHttpGet()
+
+<button (click)="TestHttpGet()">Test Http Get</button>
+<p *ngFor= "let emp of employees"> Io sono {{emp.name}} </p>
+
+----------------------
+Post
+
+employee : Impiegato;
+
+TestHttpPost() {
+this.employee = {name: "Mario activity:"Diocane", activityyears: 30, altroAttributoCheNonRicordo: 12};
+this.http.post()("http://localhost:7035/Api/impiegati", this.employee)
+          .pipe(map((response: Impiegato[]) => return response))
+          .subscribe((response) => {
+            this.employees = response;
+          });
+}
