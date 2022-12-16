@@ -63,5 +63,12 @@ export class SignUpComponent {
     salesOrderHeaders: [],
   };
 
+  /* Clean Form Fields. Need to call it when you click the Sign Up Button */
+  cleanForm = () => {
+    this.firstFormGroup.reset();
+    this.secondFormGroup.reset();
+    this.thirdFormGroup.reset();
+  };
+
   //ToDo handle format for email and password
 }
