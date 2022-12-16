@@ -5,7 +5,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from '../Components/HomePageComponent/home-page.component';
 import { ProfileComponent } from '../Components/ProfileComponent/profile.component';
 import { ShopComponent } from '../Components/ShopComponent/shop.component';
-import { SignUpComponent } from '../Components/SignUpComponent/log-in.component';
+import { SignInComponent } from '../Components/SignInComponent/sign-in.component';
+import { SignUpComponent } from '../Components/SignUpComponent/sign-up-component.component';
 
 /* path: tutto ciò che viene dopo lo slash nello url. Una volta che mi trovo su quella specifica url
    viene renderizzato esattamente il contenuto del componente corrispondente.
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'shop', component: ShopComponent },
-  { path: 'login', component: SignUpComponent },
+  { path: 'signin', component: SignInComponent },
+  { path: 'signup', component: SignUpComponent },
 ];
 
 /* Roba abbastanza standard da impostare */

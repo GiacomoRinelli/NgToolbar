@@ -1,0 +1,51 @@
+.example-stepper {
+  margin-top: 80px !important;
+  width: 750px;
+  margin: auto;
+  border-radius: 5px;
+}
+
+.signInButton {
+  position: absolute;
+  border: 2px solid white;
+  background: transparent;
+  font-family: "Roboto", sans-serif;
+  color: white;
+  width: 450px;
+  height: 70px;
+  font-size: 2em;
+  border-radius: 5px;
+  opacity: 0.5;
+  top: 1vh;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  transition: 0.3s;
+}
+
+.signInButton:hover {
+  border: 2px solid white;
+  background-color: rgba(365, 365, 365, 0.5);
+  cursor: pointer;
+  color: white;
+  opacity: 0.5;
+  transition: 0.3s;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.mat-mdc-form-field {
+  margin-top: 16px !important;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

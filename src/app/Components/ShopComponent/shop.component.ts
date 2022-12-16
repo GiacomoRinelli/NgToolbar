@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { DataService } from 'src/app/Services/data.service';
-import type { Customer } from '../ProfileComponent/profile.component';
+import type { CustomerType } from '../../GlobalTypes/global-types.component';
 
 @Component({
   selector: 'app-shop',
@@ -12,6 +12,6 @@ export class ShopComponent {
 
   //print out the customer name from the data service
   ngOnInit(): void {
-    console.log(this.ds.ExampleCustomer);
+    // console.log(this.ds.ExampleCustomer);
   }
 }

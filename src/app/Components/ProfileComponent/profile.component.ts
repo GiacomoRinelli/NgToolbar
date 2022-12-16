@@ -1,40 +1,10 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ErrorManagerService } from '../../Services/error-mana-ger.service';
-
-export type Customer = {
-  customerId?: number;
-  nameStyle: boolean;
-  title: string;
-  firstName: string;
-  middleName: string;
-  lastName: string;
-  suffix: any;
-  companyName: string;
-  salesPerson: string;
-  emailAddress: string;
-  phone: string;
-  passwordHash: string;
-  passwordSalt: string;
-  rowguid?: string;
-  modifiedDate: string;
-};
-
-/* Type for instore data from api method getCustAddr  */
-type CustomerAddress = {
-  addressId: number;
-  addressLine1: string;
-  addressLine2: any;
-  city: string;
-  stateProvince: string;
-  countryRegion: string;
-  postalCode: string;
-  rowguid: string;
-  modifiedDate: string;
-  customerAddresses: any[];
-  salesOrderHeaderBillToAddresses: any[];
-  salesOrderHeaderShipToAddresses: any[];
-};
+import {
+  CustomerType,
+  CustomerAddress,
+} from '../../GlobalTypes/global-types.component';
 
 @Component({
   selector: 'app-profile',
@@ -43,7 +13,7 @@ type CustomerAddress = {
 })
 export class ProfileComponent {
   isShowEmployeesListShown = false;
-  customers: Customer[] = [];
+  customers: CustomerType[] = [];
   customerAddresses: CustomerAddress[] = [];
   customerID: number = -1;
   custNames: string[] = [];
@@ -75,7 +45,7 @@ export class ProfileComponent {
   /* With this get call, we get all the customers informations, and we save'em into customers */
   ngOnInit() {
     this.http.get('https://localhost:7233/api/Customers').subscribe((resp) => {
-      this.customers = resp as Customer[];
+      this.customers = resp as CustomerType[];
     });
   }
 
@@ -107,7 +77,7 @@ export class ProfileComponent {
 
   /* Post Call (it works, but can be ofc improved) */
 
-  exampleCustomer: Customer = {
+  exampleCustomer: CustomerType = {
     customerId: 30119,
     firstName: 'John',
     lastName: 'Doe',
@@ -118,10 +88,13 @@ export class ProfileComponent {
     phone: '123456789',
     salesPerson: 'John Doe',
     title: 'Mr.',
-    nameStyle: true,
+    nameStyle: false,
     middleName: 'Doe',
     suffix: 'Doe',
     modifiedDate: '2021-05-05T00:00:00',
+    rowguid: '123456789',
+    customerAddresses: [],
+    salesOrderHeaders: [],
   };
 
   postFirstNameHandler(event: any) {

@@ -1,0 +1,37 @@
+<div class="signInForm">
+  <mat-card>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Email"
+        type="email"
+        formControlName="email"
+        (input)="updateEmail($event)"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Password"
+        type="password"
+        formControlName="password"
+        (input)="updatePassword($event)"
+      />
+    </mat-form-field>
+    <mat-card-footer>
+      <button
+        style="
+          position: relative;
+          left: 50%;
+          transform: translateX(-50%);
+          margin-bottom: 10px;
+        "
+        mat-raised-button
+        color="accent"
+        (click)="submitHandler()"
+      >
+        Sign In
+      </button>
+    </mat-card-footer>
+  </mat-card>
+</div>

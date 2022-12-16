@@ -18,11 +18,11 @@ button {
 }
 
 button:hover {
-  border: 2px solid #104f55;
+  border: 2px solid white;
   background-color: rgba(365, 365, 365, 0.5);
   cursor: pointer;
-  color: #104f55;
-  opacity: 0.1;
+  color: white;
+  opacity: 0.5;
   transition: 0.3s;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }

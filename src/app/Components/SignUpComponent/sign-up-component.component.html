@@ -1,0 +1,124 @@
+<!-- Utilizing a mat-stepper for log-in Form -->
+
+<mat-stepper class="example-stepper" orientation="vertical">
+  <!-- Step 1 -->
+  <mat-step [stepControl]="firstFormGroup" label="Basic Info">
+    <form [formGroup]="firstFormGroup">
+      <mat-form-field appearance="fill" class="form-field-element">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          placeholder="Insert Email"
+          formControlName="firstCtrl"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="form-field-element">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          placeholder="Insert Password"
+          formControlName="firstCtrl"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="form-field-element">
+        <mat-label>Confirm Password</mat-label>
+        <input
+          matInput
+          placeholder="Confirm Password"
+          formControlName="firstCtrl"
+        />
+      </mat-form-field>
+      <div>
+        <button mat-raised-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <!-- Step 2 -->
+  <mat-step [stepControl]="secondFormGroup" label="Company Info">
+    <form [formGroup]="secondFormGroup">
+      <mat-form-field appearance="fill" class="form-field-element">
+        <mat-label>First Name</mat-label>
+        <input
+          matInput
+          placeholder="Insert Name"
+          formControlName="secondCtrl"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="form-field-element">
+        <mat-label>Middle Name</mat-label>
+        <input
+          matInput
+          placeholder="Insert Middle Name"
+          formControlName="secondCtrl"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="form-field-element">
+        <mat-label>Last Name</mat-label>
+        <input
+          matInput
+          placeholder="Insert Last Name"
+          formControlName="secondCtrl"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="form-field-element">
+        <mat-label>Title</mat-label>
+        <mat-select>
+          <mat-option value="Mr">Mr</mat-option>
+          <mat-option value="Mrs">Mrs</mat-option>
+          <mat-option value="Ms">Ms</mat-option>
+          <mat-option value="Dr">Dr</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div>
+        <button mat-raised-button matStepperPrevious>Back</button>
+        <button mat-raised-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  Step 3
+  <mat-step [stepControl]="thirdFormGroup" label="Password">
+    <form [formGroup]="thirdFormGroup">
+      <mat-form-field appearance="fill" class="form-field-element">
+        <mat-label>Company Name</mat-label>
+        <input
+          matInput
+          placeholder="Insert Company Name"
+          formControlName="thirdCtrl"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="form-field-element">
+        <mat-label>Sales Address</mat-label>
+        <input
+          matInput
+          placeholder="Insert Sales Address"
+          formControlName="thirdCtrl"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="form-field-element">
+        <mat-label>Phone Number</mat-label>
+        <input
+          matInput
+          placeholder="Insert Phone Number"
+          formControlName="thirdCtrl"
+        />
+      </mat-form-field>
+      <div>
+        <button mat-raised-button matStepperPrevious>Back</button>
+        <button mat-raised-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <!-- Step 4 -->
+  <mat-step>
+    <ng-template matStepLabel>Sign Up</ng-template>
+    <div>
+      <button mat-raised-button matStepperPrevious color="accent" style="margin-top: 20px;">
+        <mat-icon>done_outline</mat-icon>
+        Sign Up
+      </button>
+    </div>
+  </mat-step>
+</mat-stepper>
