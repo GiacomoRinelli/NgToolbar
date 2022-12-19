@@ -70,5 +70,6 @@ export class SignUpComponent {
     this.thirdFormGroup.reset();
   };
 
-  //ToDo handle format for email and password
+  
+
 }

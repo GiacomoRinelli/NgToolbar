@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './Routing/app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 /* Components Imports */
 import { AppComponent } from './app.component';
@@ -11,6 +12,9 @@ import { ProfileComponent } from './Components/ProfileComponent/profile.componen
 import { ShopComponent } from './Components/ShopComponent/shop.component';
 import { SignInComponent } from './Components/SignInComponent/sign-in.component';
 import { GlobalTypesComponent } from './GlobalTypes/global-types.component';
+import { SidenavComponent } from './Components/SidenavComponent/sidenav.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { SignUpComponent } from './Components/SignUpComponent/sign-up-component.component';
 
 /* Angular Material Imports */
 import { MatIconModule } from '@angular/material/icon';
@@ -27,7 +31,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { SignUpComponent } from './Components/SignUpComponent/sign-up-component.component';
+import { HeaderComponent } from './Components/HeaderComponent/header.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +42,8 @@ import { SignUpComponent } from './Components/SignUpComponent/sign-up-component.
     ProfileComponent,
     ShopComponent,
     GlobalTypesComponent,
+    SidenavComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +66,8 @@ import { SignUpComponent } from './Components/SignUpComponent/sign-up-component.
     MatDatepickerModule,
     MatProgressBarModule,
     HttpClientModule,
+    MatSidenavModule,
+    AngularSvgIconModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent, SignUpComponent],

@@ -1,25 +1,21 @@
-<!-- Main Structure -->
-<div class="container-fluid g-0">
-  <app-header></app-header>
-  <main>
-    <app-sidenav></app-sidenav>
-
-    <div class="display-area p-3">
-      <router-outlet></router-outlet>
-    </div>
-  </main>
-</div>
-
-<!-- OLD SRC -->
-
-<!-- <div class="spacer">
-  <mat-toolbar>
-    <a class="betazonLinkClass" routerLink="">
-      <mat-icon>eco</mat-icon>Betazon
+<mat-toolbar class="mat-toolbar-style">
+  <span>
+    <a routerLink="">
+      <img
+        src="../../../assets/betacom_logo-modified.png"
+        alt="logo"
+        class="logo"
+        width="90"
+        height="90"
+      />
     </a>
+  </span>
 
-    <span class="spacer"></span>
+  <!-- The span right below the comment, gives the spacial distribution of the sidebar, pushing items left (those on top)
+       and pushing right, the elements below the span -->
+  <span class="flexExpand"></span>
 
+  <span>
     <a mat-raised-button color="accent" routerLink="">
       <mat-icon>home</mat-icon> Home
     </a>
@@ -28,7 +24,7 @@
       Sign In</a
     >
     <a mat-button routerLink="/signup">
-      <mat-icon class="shareAndFollowStyle">arrow_drop_down_circle</mat-icon>
+      <mat-icon class="shareAndFollowStyle">person_add</mat-icon>
       Sign Up</a
     >
     <a mat-button routerLink="/shop"
@@ -37,5 +33,5 @@
     <a mat-button routerLink="/profile"
       ><mat-icon class="shareAndFollowStyle">person</mat-icon>Profile</a
     >
-  </mat-toolbar>
-</div> -->
+  </span>
+</mat-toolbar>

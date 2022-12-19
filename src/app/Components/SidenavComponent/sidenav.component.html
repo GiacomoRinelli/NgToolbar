@@ -1,0 +1,14 @@
+<div class="side-nav-content">
+  <ul class="nav-list">
+    <li
+      class="nav-list-item"
+      *ngFor="let item of ItemList"
+      [routerLink]="item.link"
+    >
+      <a>
+        <i class="{{ item.icon }}"></i>
+        {{ item.name }}</a
+      >
+    </li>
+  </ul>
+</div>

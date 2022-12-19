@@ -1,12 +1,32 @@
-.spacer {
-  flex: 1 1 auto;
+app-header {
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  height: 6rem;
+  z-index: -2;
+  background-color: #202c39;
 }
 
-.shareAndFollowStyle {
-  color: aliceblue;
+main {
+  position: absolute;
+  width: 100%;
+  top: 6rem;
+  z-index: -1;
 }
 
-.betazonLinkClass {
-  color: aliceblue;
-  text-decoration: none;
+app-sidenav {
+  position: absolute;
+  left: 0rem;
+  width: 250px;
+  height: calc(100vh - 6rem);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background-color: #283845;
+  border-top: 1px solid white;
+}
+
+.display-area {
+  position: absolute;
+  left: 250px;
+  width: calc(100% - 250px);
+  height: calc(100vh - 6rem);
 }
