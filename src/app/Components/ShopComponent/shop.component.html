@@ -1,3 +1,19 @@
-<h1 style="color: white">WIP</h1>
+<!-- Showing all the products using Table from Material -->
 
-<mat-progress-bar mode="query"></mat-progress-bar>
+<!-- <mat-form-field>
+  <mat-label> Search <mat-icon>search</mat-icon></mat-label>
+  <input
+    matInput
+    (keyup)="applyFilter($event)"
+    placeholder="Whatever you are looking for ! "
+    #input
+  />
+</mat-form-field> -->
+
+<div *ngIf="!isDataLoaded">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div *ngIf="isDataLoaded">
+  Data is loaded
+</div>

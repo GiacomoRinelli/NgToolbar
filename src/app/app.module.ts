@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './Routing/app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { AngularSvgIconModule } from 'angular-svg-icon';
 
 /* Components Imports */
 import { AppComponent } from './app.component';
@@ -32,6 +31,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { HeaderComponent } from './Components/HeaderComponent/header.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { HeaderComponent } from './Components/HeaderComponent/header.component';
     MatProgressBarModule,
     HttpClientModule,
     MatSidenavModule,
-    AngularSvgIconModule.forRoot(),
+    MatTableModule,
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent, SignUpComponent],

@@ -35,6 +35,29 @@ export type CustomerType = {
   salesOrderHeaders?: any[];
 };
 
+export type Product = {
+  productId: number;
+  name: string;
+  productNumber: string;
+  color?: string;
+  standardCost: number;
+  listPrice: number;
+  size?: string;
+  weight?: number;
+  productCategoryId: number;
+  productModelId: number;
+  sellStartDate: string;
+  sellEndDate?: string;
+  discontinuedDate: any;
+  thumbNailPhoto: string;
+  thumbnailPhotoFileName: string;
+  rowguid: string;
+  modifiedDate: string;
+  productCategory: any;
+  productModel: any;
+  salesOrderDetails: any[];
+};
+
 @Component({
   selector: 'app-global-types',
   templateUrl: './global-types.component.html',
