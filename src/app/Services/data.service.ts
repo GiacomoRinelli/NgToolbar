@@ -12,8 +12,6 @@ import type { CustomerType } from '../GlobalTypes/global-types.component';
 export class DataService {
   constructor(private http: HttpClient) {}
 
-  /* This service contains the most common used api calls */
-
   /* Get call from the Product table */
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>('https://localhost:7233/api/Products');

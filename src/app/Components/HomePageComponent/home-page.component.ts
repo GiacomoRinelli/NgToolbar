@@ -133,6 +133,8 @@ import {
   ],
 })
 export class HomePageComponent {
+
+  
   /* Variables */
   signUpButtonLabelState: boolean = false;
   isSignUpButtonOpen: boolean = false;

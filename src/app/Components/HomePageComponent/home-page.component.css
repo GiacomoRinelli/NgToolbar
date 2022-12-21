@@ -1,6 +1,33 @@
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.welcomeTextContainer {
+  font-size: 8rem; /* Adjust as needed */
+  font-weight: bold;
+  margin-bottom: 28px; /* Adjust as needed */
+}
+
+.buttonsContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns, equal width */
+  grid-gap: 200px; /* Adjust as needed */
+  grid-column-gap: 28px;
+  height: 50%;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .btn {
   --light-color: rgb(69, 252, 151);
-  position: relative;
+  /* position: relative; */
   appearance: none;
   border: none;
   color: #202c39;
@@ -82,3 +109,240 @@
     transform: translate(-50%, -100%) rotate(180deg);
   }
 }
+
+/* FIGURES CSS */
+
+.figuresContainer {
+  width: 400px;
+  height: 100px;
+  position: relative;
+  perspective: 1000px;
+  left: calc(50% - 180px);
+  top: 100px;
+}
+
+#cube {
+  width: 500px;
+  height: 100px;
+  position: absolute;
+  transform-style: preserve-3d;
+  animation: rotate 10s infinite ease;
+}
+
+#cube figure {
+  margin: 0;
+  width: 350px;
+  height: 100px;
+  display: block;
+  position: absolute;
+  font-family: "Raleway", sans-serif;
+  font-size: 75px;
+  font-weight: 800;
+}
+
+#cube .cube1 {
+  transform: rotateY(0deg) translateZ(50px);
+  animation: strengthsCubeText1 10s infinite ease;
+  color: #e91e63;
+}
+
+#cube .cube2 {
+  transform: rotateX(180deg) translateZ(50px);
+  animation: strengthsCubeText3 10s infinite ease;
+  color: #9c27b0;
+}
+
+#cube .cube3 {
+  transform: rotateX(90deg) translateZ(50px);
+  animation: strengthsCubeText4 10s infinite ease;
+  color: #2196f3;
+}
+
+#cube .cube4 {
+  transform: rotateX(-90deg) translateZ(50px);
+  animation: strengthsCubeText2 10s infinite ease;
+  color: #4caf50;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateX(0deg);
+  }
+  20% {
+    transform: rotateX(0deg);
+  }
+  25% {
+    transform: rotateX(90deg);
+  }
+  45% {
+    transform: rotateX(90deg);
+  }
+  50% {
+    transform: rotateX(180deg);
+  }
+  70% {
+    transform: rotateX(180deg);
+  }
+  75% {
+    transform: rotateX(270deg);
+  }
+  95% {
+    transform: rotateX(270deg);
+  }
+  100% {
+    transform: rotateX(360deg);
+  }
+}
+
+@keyframes strengthsCubeRotate {
+  0% {
+    transform: rotateX(0deg);
+  }
+  20% {
+    transform: rotateX(0deg);
+  }
+  25% {
+    transform: rotateX(90deg);
+  }
+  45% {
+    transform: rotateX(90deg);
+  }
+  50% {
+    transform: rotateX(180deg);
+  }
+  70% {
+    transform: rotateX(180deg);
+  }
+  75% {
+    transform: rotateX(270deg);
+  }
+  95% {
+    transform: rotateX(270deg);
+  }
+  100% {
+    transform: rotateX(360deg);
+  }
+}
+
+@keyframes strengthsCubeText1 {
+  0% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  45% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  95% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes strengthsCubeText2 {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  95% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes strengthsCubeText3 {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0;
+  }
+  45% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  95% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes strengthsCubeText4 {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0;
+  }
+  45% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* WELCOME TEXT CSS */
+

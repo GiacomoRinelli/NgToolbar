@@ -25,6 +25,7 @@
     "bootstrap": "^5.2.3",
     "ng-animate": "^2.0.1",
     "ngx-teximate": "^0.3.0",
+    "node-base64-image": "^2.0.4",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"

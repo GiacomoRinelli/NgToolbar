@@ -1,10 +1,8 @@
 app-header {
-  position: fixed;
-  width: 100%;
-  top: 0px;
-  height: 6rem;
-  z-index: -2;
-  background-color: #202c39;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #243561;
 }
 
 main {
@@ -18,10 +16,10 @@ app-sidenav {
   position: absolute;
   left: 0rem;
   width: 250px;
-  height: calc(100vh - 6rem);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  background-color: #283845;
+  height: 100vh;
+  background-color: #cf5c36;
   border-top: 1px solid white;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.9);
 }
 
 .display-area {
@@ -29,4 +27,7 @@ app-sidenav {
   left: 250px;
   width: calc(100% - 250px);
   height: calc(100vh - 6rem);
+  overflow: auto;
+  z-index: -1;
+  background-color: #F7F7FF;
 }
