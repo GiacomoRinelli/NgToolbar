@@ -29,5 +29,5 @@ app-sidenav {
   height: calc(100vh - 6rem);
   overflow: auto;
   z-index: -1;
-  background-color: #F7F7FF;
+  background-color: #D0CCD0;
 }
