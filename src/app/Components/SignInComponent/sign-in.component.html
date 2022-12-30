@@ -1,37 +1,25 @@
-<div class="signInForm">
-  <mat-card>
-    <mat-form-field>
+<div class="mainBg">
+  <div id="container">
+    <form>
+      <img src="../../../assets/betacom_logo-modified.png" /><br />
       <input
-        matInput
+        type="text"
         placeholder="Email"
-        type="email"
-        formControlName="email"
+        style="color: aliceblue"
         (input)="updateEmail($event)"
-      />
-    </mat-form-field>
-    <mat-form-field>
+      /><br />
       <input
-        matInput
-        placeholder="Password"
         type="password"
-        formControlName="password"
+        placeholder="Password"
+        style="color: aliceblue"
         (input)="updatePassword($event)"
-      />
-    </mat-form-field>
-    <mat-card-footer>
-      <button
-        style="
-          position: relative;
-          left: 50%;
-          transform: translateX(-50%);
-          margin-bottom: 10px;
-        "
-        mat-raised-button
-        color="accent"
-        (click)="submitHandler()"
-      >
-        Sign In
-      </button>
-    </mat-card-footer>
-  </mat-card>
+      /><br />
+      <input
+        type="submit"
+        (click)="openDialog('300ms', '300ms')"
+        value="SIGN IN"
+      /><br />
+      <span style="color: aliceblue">Forgot Password?</span>
+    </form>
+  </div>
 </div>

@@ -13,9 +13,9 @@
 .buttonsContainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 columns, equal width */
-  grid-gap: 200px; /* Adjust as needed */
+  grid-gap: 100px; /* Adjust as needed */
   grid-column-gap: 28px;
-  grid-row-gap: 22rem;
+  grid-row-gap: 12rem;
   height: 50%;
 }
 
@@ -26,7 +26,7 @@
 }
 
 .btn {
-  --light-color: #243561;
+  --light-color: #C55530;
   /* position: relative; */
   appearance: none;
   border: none;
@@ -87,19 +87,20 @@
 }
 .btn:hover {
   transform: scale(2.2);
-  color: white;
+  color: #243561;
+  background-color: #fff;
 }
 .btn:hover,
 .btn:hover::after {
   cursor: pointer;
-  background: #243561;
+  background: #fff;
   --light-color: #cf5c36;
 }
 .btn:hover::before {
   animation-duration: 0.5s;
 }
 .btn_greenish {
-  --light-color: #243561;
+  --light-color: #C55530;
 }
 
 @keyframes button_light_effect {
@@ -141,7 +142,7 @@
   text-align: center;
 }
 
-#cube .cube1 {
+/* #cube .cube1 {
   transform: rotateY(0deg) translateZ(50px);
   animation: strengthsCubeText1 10s infinite ease;
   color: #243561;
@@ -163,7 +164,7 @@
   transform: rotateX(-90deg) translateZ(50px);
   animation: strengthsCubeText2 10s infinite ease;
   color: #243561;
-}
+} */
 
 @keyframes rotate {
   0% {

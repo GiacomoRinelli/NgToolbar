@@ -33,6 +33,9 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { HeaderComponent } from './Components/HeaderComponent/header.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialogModule } from '@angular/material/dialog';
+import { SignInDialogComponent } from './Components/SignInComponent/SignInDialogComponent/sign-in-dialog/sign-in-dialog.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +48,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     GlobalTypesComponent,
     SidenavComponent,
     HeaderComponent,
+    SignInDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,6 +74,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatSidenavModule,
     MatTableModule,
     MatProgressSpinnerModule,
+    MatTooltipModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent, SignUpComponent],

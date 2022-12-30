@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Form } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { SignInDialogComponent } from './SignInDialogComponent/sign-in-dialog/sign-in-dialog.component';
 
 export type Credentials = {
   email: string;
@@ -12,14 +13,27 @@ export type Credentials = {
   styleUrls: ['./sign-in.component.css'],
 })
 export class SignInComponent {
-  constructor() {}
+  constructor(private dialog: MatDialog) {}
+
+  /* Variables */
 
   credentials: Credentials = {
     email: '',
     password: '',
   };
 
-  //we can also use $event to update our variables
+  /* Functions */
+
+  openDialog(
+    enterAnimationDuration: string,
+    exitAnimationDuration: string
+  ): void {
+    const dialogRef = this.dialog.open(SignInDialogComponent, {
+      width: '250px',
+      enterAnimationDuration: enterAnimationDuration,
+      exitAnimationDuration: exitAnimationDuration,
+    });
+  }
 
   updateEmail(e: any) {
     this.credentials.email = e.target.value;
@@ -29,7 +43,5 @@ export class SignInComponent {
     this.credentials.password = e.target.value;
   }
 
-  submitHandler() {
-    console.log(this.credentials);
-  }
+  submitHandler() {}
 }

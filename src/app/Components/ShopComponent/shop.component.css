@@ -1,4 +1,6 @@
 .container {
+  /* background-image: url("../../../assets/shopbg.svg");
+  background-repeat: no-repeat; */
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 columns, equal width */
   grid-row-gap: 28px;
@@ -88,8 +90,7 @@
   background: linear-gradient(180deg, #e0d09a, #000000);
 }
 .btn:hover {
-  color: #eaeaea !important;
-  border: 1px solid transparent !important;
+  transform: scale(1.1);
 }
 .btn:hover .bg {
   opacity: 1;

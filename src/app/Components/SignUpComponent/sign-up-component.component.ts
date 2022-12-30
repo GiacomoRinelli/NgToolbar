@@ -5,6 +5,7 @@ import { StepperOrientation } from '@angular/material/stepper';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import type { CustomerType } from '../../GlobalTypes/global-types.component';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-sign-up-component',
@@ -12,14 +13,30 @@ import type { CustomerType } from '../../GlobalTypes/global-types.component';
   styleUrls: ['./sign-up-component.component.css'],
 })
 export class SignUpComponent {
-  firstFormGroup = this._formBuilder.group({
-    firstCtrl: ['', Validators.required],
-  });
+  firstFormGroup = this._formBuilder.group(
+    {
+      email: [
+        '',
+        Validators.compose([Validators.required, this.emailValidator]),
+      ],
+      password: [
+        '',
+        Validators.compose([Validators.required, this.passwordValidator]),
+      ],
+      confirmPassword: ['', Validators.required],
+    },
+    { validator: this.confirmPasswordValidator }
+  );
   secondFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
+    firstName: ['', Validators.required],
+    middleName: [''],
+    lastName: ['', Validators.required],
+    title: ['', Validators.required],
   });
   thirdFormGroup = this._formBuilder.group({
-    thirdCtrl: ['', Validators.required],
+    companyName: ['', Validators.required],
+    salesAddress: ['', Validators.required],
+    phoneNumber: ['', Validators.required],
   });
   fourthFormGroup = this._formBuilder.group({
     fourthCtrl: ['', Validators.required],
@@ -29,12 +46,15 @@ export class SignUpComponent {
 
   constructor(
     private _formBuilder: FormBuilder,
-    breakpointObserver: BreakpointObserver
+    private breakpointObserver: BreakpointObserver,
+    private http: HttpClient
   ) {
     this.stepperOrientation = breakpointObserver
       .observe('(min-width: 800px)')
       .pipe(map(({ matches }) => (matches ? 'horizontal' : 'vertical')));
   }
+
+  /* Variables */
 
   customer: CustomerType = {
     /* First step */
@@ -55,12 +75,117 @@ export class SignUpComponent {
     /* Server side data (don't require a form step) */
     customerId: 0,
     passwordSalt: '',
-    rowguid: '',
+    rowguid: '123456789',
     suffix: '',
     modifiedDate: '',
     nameStyle: false,
     customerAddresses: [],
     salesOrderHeaders: [],
+  };
+  isSignUpButtonEnabled: boolean = false;
+
+  /* Functions */
+
+  /* Functions for checking form field validations */
+
+  emailValidator(control: any): { [key: string]: any } | null {
+    const emailRegex = /@/;
+    if (!emailRegex.test(control.value)) {
+      return { invalidEmail: true };
+    }
+    return null;
+  }
+
+  passwordValidator(control: any): { [key: string]: any } | null {
+    const passwordRegex = /^(?=.*[0-9]).{6,}$/;
+    if (!passwordRegex.test(control.value)) {
+      return { invalidPassword: true };
+    }
+    return null;
+  }
+
+  confirmPasswordValidator(control: any): { [key: string]: any } | null {
+    const password = control.get('password')?.value;
+    const confirmPassword = control.get('confirmPassword')?.value;
+    if (password !== confirmPassword) {
+      return { passwordsDoNotMatch: true };
+    }
+    return null;
+  }
+
+  /* Sign Up Handler */
+  signUpHandler = () => {
+    /* First step */
+    this.customer.emailAddress = this.firstFormGroup.value.email ?? '';
+    this.customer.passwordHash = this.firstFormGroup.value.password ?? '';
+
+    /* Second step */
+    this.customer.title = this.secondFormGroup.value.title ?? '';
+    this.customer.firstName = this.secondFormGroup.value.firstName ?? '';
+    this.customer.middleName = this.secondFormGroup.value.middleName ?? '';
+    this.customer.lastName = this.secondFormGroup.value.lastName ?? '';
+
+    /* Third step */
+    this.customer.companyName = this.thirdFormGroup.value.companyName ?? '';
+    this.customer.salesPerson = this.thirdFormGroup.value.salesAddress ?? '';
+    this.customer.phone = this.thirdFormGroup.value.phoneNumber ?? '';
+
+    /* Send the customer data to the server */
+    // this.http
+    //   .post('https://localhost:7233/api/Customers/postCust', {
+    //     emailAddress: this.customer.emailAddress,
+    //     passwordHash: this.customer.passwordHash,
+    //     title: this.customer.title,
+    //     firstName: this.customer.firstName,
+    //     middleName: this.customer.middleName,
+    //     lastName: this.customer.lastName,
+    //     companyName: this.customer.companyName,
+    //     salesPerson: this.customer.salesPerson,
+    //     phone: this.customer.phone,
+    //     passwordSalt: this.customer.passwordSalt,
+    //     rowguid: this.customer.rowguid,
+    //     suffix: this.customer.suffix,
+    //     modifiedDate: this.customer.modifiedDate,
+    //     nameStyle: this.customer.nameStyle,
+    //     customerAddresses: this.customer.customerAddresses,
+    //     salesOrderHeaders: this.customer.salesOrderHeaders,
+    //   })
+    //   .subscribe(
+    //     (response) => {
+    //       console.log(response);
+    //     },
+    //     (err) => {
+    //       console.log(err);
+    //     }
+    //   );
+
+    this.http
+      .post('https://localhost:7233/api/Customers/postCust', {
+        firstName: this.customer.firstName,
+        lastName: this.customer.lastName,
+        middleName: this.customer.middleName,
+        emailAddress: this.customer.emailAddress,
+        companyName: this.customer.companyName,
+        phone: this.customer.phone,
+        salesPerson: this.customer.salesPerson,
+        title: this.customer.title,
+        suffix: this.customer.suffix,
+        passwordHash: this.customer.passwordHash,
+        passwordSalt: this.customer.passwordSalt,
+      })
+      .subscribe({
+        next: (response) => {
+          console.log(response);
+        },
+        error: (error) => {
+          console.log(error);
+        },
+        complete: () => {
+          // define on request complete logic
+          // 'complete' is not the same as 'finalize'!!
+          // this logic will not be executed if error is fired
+        },
+      });
   };
 
   /* Clean Form Fields. Need to call it when you click the Sign Up Button */
@@ -69,7 +194,4 @@ export class SignUpComponent {
     this.secondFormGroup.reset();
     this.thirdFormGroup.reset();
   };
-
-  
-
 }

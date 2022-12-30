@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, BehaviorSubject, of } from 'rxjs';
+import { Observable } from 'rxjs';
 
 /* Type Imports */
 import type { Product } from '../GlobalTypes/global-types.component';
@@ -16,4 +16,5 @@ export class DataService {
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>('https://localhost:7233/api/Products');
   }
+
 }

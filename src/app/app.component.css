@@ -1,9 +1,7 @@
 app-header {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  background-color: #243561;
+  height: 0.6rem;
 }
+
 
 main {
   position: absolute;
@@ -17,17 +15,30 @@ app-sidenav {
   left: 0rem;
   width: 250px;
   height: 100vh;
-  background-color: #cf5c36;
+  /* background-color: #cf5c36;
   border-top: 1px solid white;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.9);
+  background-image: url("../../src/assets/blurry-gradient-haikei.svg");
+  background-repeat: no-repeat;
+  background-size: cover; */
+  background: inherit;
+  opacity: 0.8;
+  border: 10px;
+  border-radius: 10px;
+  border-color: #cf5c36;
 }
 
 .display-area {
+  background-image: url("../../src/assets/homepagebg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
   position: absolute;
-  left: 250px;
-  width: calc(100% - 250px);
+  left: 0px;
+  width: calc(100%);
   height: calc(100vh - 6rem);
   overflow: auto;
   z-index: -1;
-  background-color: #D0CCD0;
 }
