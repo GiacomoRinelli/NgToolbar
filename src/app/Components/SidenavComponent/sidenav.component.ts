@@ -9,6 +9,9 @@ export class SidenavComponent {
   ItemList = [
     { name: 'Home', icon: 'fa-solid fa-house', link: '/' },
     { name: 'Shop', icon: 'fa-solid fa-cart-shopping', link: '/shop' },
+  ];
+
+  SecondItemList = [
     {
       name: 'SignIn',
       icon: 'fa-solid fa-arrow-right-to-bracket',
@@ -17,6 +20,11 @@ export class SidenavComponent {
     { name: 'SignUp', icon: 'fa-solid fa-user-plus', link: '/signup' },
   ];
 
-  constructor() {}
+  ThirdItemList = [
+    { name: 'About', icon: 'fa-solid fa-info-circle', link: '/about' },
+    { name: 'Contact', icon: 'fa-solid fa-phone', link: '/contact' },
+    { name: 'Help', icon: 'fa-solid fa-question-circle', link: '/help' },
+  ];
 
+  constructor() {}
 }

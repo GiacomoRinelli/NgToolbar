@@ -130,35 +130,6 @@ export class SignUpComponent {
     this.customer.salesPerson = this.thirdFormGroup.value.salesAddress ?? '';
     this.customer.phone = this.thirdFormGroup.value.phoneNumber ?? '';
 
-    /* Send the customer data to the server */
-    // this.http
-    //   .post('https://localhost:7233/api/Customers/postCust', {
-    //     emailAddress: this.customer.emailAddress,
-    //     passwordHash: this.customer.passwordHash,
-    //     title: this.customer.title,
-    //     firstName: this.customer.firstName,
-    //     middleName: this.customer.middleName,
-    //     lastName: this.customer.lastName,
-    //     companyName: this.customer.companyName,
-    //     salesPerson: this.customer.salesPerson,
-    //     phone: this.customer.phone,
-    //     passwordSalt: this.customer.passwordSalt,
-    //     rowguid: this.customer.rowguid,
-    //     suffix: this.customer.suffix,
-    //     modifiedDate: this.customer.modifiedDate,
-    //     nameStyle: this.customer.nameStyle,
-    //     customerAddresses: this.customer.customerAddresses,
-    //     salesOrderHeaders: this.customer.salesOrderHeaders,
-    //   })
-    //   .subscribe(
-    //     (response) => {
-    //       console.log(response);
-    //     },
-    //     (err) => {
-    //       console.log(err);
-    //     }
-    //   );
-
     this.http
       .post('https://localhost:7233/api/Customers/postCust', {
         firstName: this.customer.firstName,

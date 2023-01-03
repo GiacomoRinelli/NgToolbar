@@ -4,16 +4,11 @@
 
   <!-- Buttons -->
   <div class="buttonsContainer">
-    <!-- Figures -->
     <div></div>
-    <div class="figuresContainer">
-      <!-- <div id="cube">
-        <figure class="cube1">the</figure>
-        <figure class="cube2">of</figure>
-        <figure class="cube3">bycicles</figure>
-        <figure class="cube4">home</figure>
-      </div> -->
+    <div *ngIf="isUserAuthenticated()" class="dimensionMiddle">
+      Welcome Back !
     </div>
+    <div *ngIf="!isUserAuthenticated()" class="dimensionMiddle"></div>
     <div></div>
     <div class="buttonWrapper">
       <a routerLink="/shop">
@@ -21,13 +16,18 @@
       </a>
     </div>
     <div class="buttonWrapper">
-      <a routerLink="/signup">
-        <button class="btn btn_greenish">Join Us</button>
-      </a>
+      <div *ngIf="!isUserAuthenticated()">
+        <a routerLink="/signin">
+          <button class="btn btn_greenish">Log In</button>
+        </a>
+      </div>
+      <div *ngIf="isUserAuthenticated()">
+        <button (click)="logout()" class="btn btn_greenish">Log Out</button>
+      </div>
     </div>
     <div class="buttonWrapper">
-      <a routerLink="/signin">
-        <button class="btn btn_greenish">Sign In</button>
+      <a routerLink="/signup">
+        <button class="btn btn_greenish">Sign Up</button>
       </a>
     </div>
   </div>

@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './Routing/app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { JwtModule } from '@auth0/angular-jwt';
+import { AuthGuard } from './Services/auth-guard';
 
 /* Components Imports */
 import { AppComponent } from './app.component';
@@ -36,6 +37,13 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SignInDialogComponent } from './Components/SignInComponent/SignInDialogComponent/sign-in-dialog/sign-in-dialog.component';
+import { RouterModule } from '@angular/router';
+import { ShopDialogComponent } from './Components/ShopComponent/ShopDialogComponent/shop-dialog/shop-dialog.component';
+
+/* Token function for authorization */
+export function tokenGetter() {
+  return localStorage.getItem('token');
+}
 
 @NgModule({
   declarations: [
@@ -49,10 +57,11 @@ import { SignInDialogComponent } from './Components/SignInComponent/SignInDialog
     SidenavComponent,
     HeaderComponent,
     SignInDialogComponent,
+    ShopDialogComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    // AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
@@ -76,8 +85,23 @@ import { SignInDialogComponent } from './Components/SignInComponent/SignInDialog
     MatProgressSpinnerModule,
     MatTooltipModule,
     MatDialogModule,
+    //set routes
+    RouterModule.forRoot([
+      { path: '', component: HomePageComponent },
+      { path: 'profile', component: ProfileComponent },
+      { path: 'shop', component: ShopComponent, canActivate: [AuthGuard] },
+      { path: 'signin', component: SignInComponent },
+      { path: 'signup', component: SignUpComponent },
+    ]),
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ['localhost:7233'],
+        disallowedRoutes: [],
+      },
+    }),
   ],
-  providers: [],
-  bootstrap: [AppComponent, SignUpComponent],
+  providers: [AuthGuard],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

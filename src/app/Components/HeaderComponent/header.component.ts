@@ -8,7 +8,6 @@ import { Component } from '@angular/core';
 export class HeaderComponent {
   constructor() {}
 
-  sideNavToggle() {
-    console.log('sideNavToggle');
-  }
+  
+
 }

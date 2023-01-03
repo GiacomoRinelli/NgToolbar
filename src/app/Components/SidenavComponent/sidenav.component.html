@@ -10,5 +10,27 @@
         {{ item.name }}</a
       >
     </li>
+    <mat-divider></mat-divider>
+    <li
+      class="nav-list-item"
+      *ngFor="let item of SecondItemList"
+      [routerLink]="item.link"
+    >
+      <a>
+        <i class="{{ item.icon }}"></i>
+        {{ item.name }}</a
+      >
+    </li>
+    <mat-divider></mat-divider>
+    <li
+      class="nav-list-item"
+      *ngFor="let item of ThirdItemList"
+      [routerLink]="item.link"
+    >
+      <a>
+        <i class="{{ item.icon }}"></i>
+        {{ item.name }}</a
+      >
+    </li>
   </ul>
 </div>
