@@ -6,7 +6,7 @@
   <div class="buttonsContainer">
     <div></div>
     <div *ngIf="isUserAuthenticated()" class="dimensionMiddle">
-      Welcome Back !
+      Welcome Back {{ firstName }} !
     </div>
     <div *ngIf="!isUserAuthenticated()" class="dimensionMiddle"></div>
     <div></div>

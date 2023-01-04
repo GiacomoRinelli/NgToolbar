@@ -1,9 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { DataService } from 'src/app/Services/data.service';
 import type { Product } from 'src/app/GlobalTypes/global-types.component';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { MatDialog } from '@angular/material/dialog';
-import { ShopDialogComponent } from './ShopDialogComponent/shop-dialog/shop-dialog.component';
+
 
 @Component({
   selector: 'app-shop',
@@ -18,7 +16,6 @@ export class ShopComponent implements OnInit {
   constructor(
     private changeDetector: ChangeDetectorRef,
     private http: HttpClient,
-    private dialog: MatDialog
   ) {}
 
   /* Functions */

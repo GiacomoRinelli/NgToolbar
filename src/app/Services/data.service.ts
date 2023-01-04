@@ -17,4 +17,6 @@ export class DataService {
     return this.http.get<Product[]>('https://localhost:7233/api/Products');
   }
 
+  
+
 }

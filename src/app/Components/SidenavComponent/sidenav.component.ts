@@ -18,6 +18,7 @@ export class SidenavComponent {
       link: '/signin',
     },
     { name: 'SignUp', icon: 'fa-solid fa-user-plus', link: '/signup' },
+    { name: 'Profile', icon: 'fa-solid fa-user', link: '/profile' },
   ];
 
   ThirdItemList = [

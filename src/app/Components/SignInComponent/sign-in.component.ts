@@ -5,17 +5,15 @@ import {
   HttpClient,
   HttpHeaders,
   HttpErrorResponse,
+  HttpResponse,
 } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
+import { CustomerService } from 'src/app/Services/CustomerService';
+import type { CustomerType } from 'src/app/GlobalTypes/global-types.component';
 
 export type Credentials = {
   email: string;
   password: string;
-};
-
-export type AuthenticatedResponse = {
-  token: string;
 };
 
 @Component({
@@ -27,11 +25,13 @@ export class SignInComponent {
   constructor(
     private dialog: MatDialog,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private customerService: CustomerService
   ) {}
 
   /* Variables */
 
+  customer = {} as CustomerType;
   invalidLogin: boolean = true;
   credentials: Credentials = {
     email: '',
@@ -40,6 +40,7 @@ export class SignInComponent {
 
   /* Functions */
 
+  /* Dialog Function */
   openDialog(
     enterAnimationDuration: string,
     exitAnimationDuration: string
@@ -51,6 +52,7 @@ export class SignInComponent {
     });
   }
 
+  /* Updating User Input  */
   updateEmail(e: any) {
     this.credentials.email = e.target.value;
   }
@@ -70,9 +72,10 @@ export class SignInComponent {
           // logic for successful login
           const token = (response as any).token;
           localStorage.setItem('jwt', token);
+          this.getCustomerFromEmail(this.credentials.email);
           this.invalidLogin = false;
           this.router.navigate(['/']);
-        },
+        },  
         error: (error) => {
           console.log(error);
           this.openDialog('0.5s', '0.5s');
@@ -87,25 +90,14 @@ export class SignInComponent {
       });
   }
 
-  login = (form: NgForm) => {
-    if (form.valid) {
-      this.http
-        .post<AuthenticatedResponse>(
-          'https://localhost:7233/api/auth/login',
-          this.credentials,
-          {
-            headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-          }
-        )
-        .subscribe({
-          next: (response: AuthenticatedResponse) => {
-            const token = response.token;
-            localStorage.setItem('jwt', token);
-            this.invalidLogin = false;
-            this.router.navigate(['/']);
-          },
-          error: (err: HttpErrorResponse) => (this.invalidLogin = true),
-        });
-    }
-  };
+  /* Get Customer from Email (it works because email is unique) */
+  getCustomerFromEmail(email: string) {
+    this.http
+      .get<CustomerType>(
+        'https://localhost:7233/api/Customers/customer/' + email
+      )
+      .subscribe((customer) => {
+        this.customerService.setCustomer(customer);
+      });
+  }
 }
