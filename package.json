@@ -23,6 +23,7 @@
     "@auth0/angular-jwt": "^5.1.2",
     "@mdi/font": "^7.0.96",
     "angular-svg-icon": "^15.0.0",
+    "animate.css": "^4.1.1",
     "bootstrap": "^5.2.3",
     "jwt-decode": "^3.1.2",
     "ng-animate": "^2.0.1",

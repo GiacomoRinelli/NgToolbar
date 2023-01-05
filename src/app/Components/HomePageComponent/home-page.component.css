@@ -75,7 +75,7 @@
   width: calc(100% - 0.3rem);
   height: calc(100% - 0.3rem);
   background-color: #fff;
-  color: white;
+  color: #c55530;
   content: "";
   top: 50%;
   left: 50%;
@@ -86,7 +86,7 @@
 }
 .btn:hover {
   transform: scale(2.2);
-  color: #243561;
+  color: #c55530;
   background-color: #fff;
 }
 .btn:hover,
@@ -353,7 +353,7 @@
   margin-bottom: 98px; /* Adjust as needed */
   margin-top: 40px;
   font: bold 9rem arial, sans-serif;
-  color: #cf5c36;
+  color: #d6fff5;
   text-shadow: 4px 3px 0px #333, 3px 0px 0px #333, 2px 0px 0px #333,
     1px 0px 0px #333, 3px 0px 15px rgba(0, 0, 0, 0.8), 0px 4px 0px #444,
     0px 3px 0px #444, 0px 2px 0px #444, 0px 1px 0px #444;

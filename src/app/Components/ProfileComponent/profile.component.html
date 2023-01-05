@@ -1,5 +1,29 @@
-<div class="container">
-  <aside class="profile-card">
-   
-  </aside>
+<div class="mainBg">
+  <mat-card class="customer-card">
+    <mat-card-header>
+      <mat-card-title class="title">
+        {{ customer.firstName }} {{ customer.lastName }}
+      </mat-card-title>
+      <mat-card-subtitle class="subtitle">{{
+        customer.companyName
+      }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="content">
+      <p><i class="fa-solid fa-envelope"></i> {{ customer.emailAddress }}</p>
+      <p><i class="fa-solid fa-phone"></i> {{ customer.phone }}</p>
+      <p>
+        <i class="fa-solid fa-calendar-days"></i> Signed in
+        {{ formattedDate }}
+      </p>
+      <p><i class="fa-solid fa-venus-mars"></i> {{ customer.title }}</p>
+    </mat-card-content>
+    <mat-card-actions class="card-actions">
+      <button mat-button color="warn" (click)="updateCustomer()">
+        <i class="fa-solid fa-edit"></i> Edit
+      </button>
+      <button mat-button color="warn" (click)="deleteCustomer()">
+        <i class="fa-solid fa-trash"></i> Delete
+      </button>
+    </mat-card-actions>
+  </mat-card>
 </div>

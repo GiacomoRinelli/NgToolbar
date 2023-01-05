@@ -85,10 +85,13 @@ export function tokenGetter() {
     MatProgressSpinnerModule,
     MatTooltipModule,
     MatDialogModule,
-    //set routes
     RouterModule.forRoot([
       { path: '', component: HomePageComponent },
-      { path: 'profile', component: ProfileComponent },
+      {
+        path: 'profile',
+        component: ProfileComponent,
+        canActivate: [AuthGuard],
+      },
       { path: 'shop', component: ShopComponent, canActivate: [AuthGuard] },
       { path: 'signin', component: SignInComponent },
       { path: 'signup', component: SignUpComponent },

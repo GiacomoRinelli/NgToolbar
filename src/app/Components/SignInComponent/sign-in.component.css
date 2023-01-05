@@ -38,8 +38,8 @@
   border-radius: 8px;
 }
 form img {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   border-radius: 100%;
 }
 form {
@@ -77,4 +77,21 @@ input[type="submit"]:hover {
 }
 span a {
   color: rgba(255, 255, 255, 0.8);
+}
+
+.signupbtn {
+  background: 0;
+  height: 40px;
+  width: 100px;
+  outline: 0;
+  border: 0;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.8);
+  border: #fff solid 2px;
+}
+
+.signupbtn:hover {
+  color: aliceblue;
 }
