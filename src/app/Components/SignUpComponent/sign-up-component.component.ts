@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import type { CustomerType } from '../../GlobalTypes/global-types.component';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up-component',
@@ -47,7 +48,8 @@ export class SignUpComponent {
   constructor(
     private _formBuilder: FormBuilder,
     private breakpointObserver: BreakpointObserver,
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
   ) {
     this.stepperOrientation = breakpointObserver
       .observe('(min-width: 800px)')
@@ -145,11 +147,13 @@ export class SignUpComponent {
         passwordSalt: this.customer.passwordSalt,
       })
       .subscribe({
-        next: (response) => {
-          console.log(response);
+        next: () => {
+          this.cleanForm();
+          alert('SIGN UP SUCCESSFUL, PLEASE LOGIN');
+          this.router.navigate(['/signin']);
         },
         error: (error) => {
-          console.log(error);
+          alert('EMAIL ADDRESS ALREADY EXISTS, PLEASE USE ANOTHER ONE');
         },
         complete: () => {
           // define on request complete logic
