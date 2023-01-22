@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class SidenavComponent {
   ItemList = [
     { name: 'Home', icon: 'fa-solid fa-house', link: '/' },
+    { name: 'SignUp', icon: 'fa-solid fa-user-plus', link: '/signup' },
     { name: 'Shop', icon: 'fa-solid fa-cart-shopping', link: '/shop' },
   ];
 
@@ -17,14 +18,13 @@ export class SidenavComponent {
       icon: 'fa-solid fa-arrow-right-to-bracket',
       link: '/signin',
     },
-    { name: 'SignUp', icon: 'fa-solid fa-user-plus', link: '/signup' },
     { name: 'Profile', icon: 'fa-solid fa-user', link: '/profile' },
+    { name: 'Customers', icon: 'fa-solid fa-people-roof', link: '/customers' },
   ];
 
   ThirdItemList = [
     { name: 'About', icon: 'fa-solid fa-info-circle', link: '/about' },
     { name: 'Contact', icon: 'fa-solid fa-phone', link: '/contact' },
-    { name: 'Help', icon: 'fa-solid fa-question-circle', link: '/help' },
   ];
 
   constructor() {}

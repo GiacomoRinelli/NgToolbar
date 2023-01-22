@@ -13,23 +13,22 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HomePageComponent implements OnInit {
   private customerSubscription: Subscription = new Subscription(); // sottoscrivi l'observabile customer$ invece di customerId$
-  customerID: number = 0;
   firstName: string = '';
+  customer = {} as CustomerType;
 
   constructor(
     private jwtHelper: JwtHelperService,
     private customerService: CustomerService,
-    private changeDetector: ChangeDetectorRef, // inietta l'oggetto ChangeDetectorRef
+    private changeDetector: ChangeDetectorRef,
     private http: HttpClient
   ) {}
 
   ngOnInit() {
-    this.customerSubscription = this.customerService.customer$.subscribe(
-      (customer: CustomerType) => {
-        this.firstName = customer.firstName; // imposta la variabile firstName con il valore del campo firstName del customer
-        this.changeDetector.markForCheck(); //forcing a refresh of the view
-      }
-    );
+    if (this.isUserAuthenticated()) {
+      this.customer = JSON.parse(localStorage.getItem('customer')!);
+      this.firstName = this.customer.firstName;
+      this.changeDetector.markForCheck();
+    }
   }
 
   isUserAuthenticated() {
@@ -43,5 +42,6 @@ export class HomePageComponent implements OnInit {
 
   logout() {
     localStorage.removeItem('jwt');
+    localStorage.removeItem('customer');
   }
 }

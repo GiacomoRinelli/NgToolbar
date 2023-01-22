@@ -1,6 +1,4 @@
 .container {
-  /* background-image: url("../../../assets/shopbg.svg");
-  background-repeat: no-repeat; */
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 columns, equal width */
   grid-row-gap: 28px;
@@ -18,12 +16,14 @@
   padding: 20px;
   font-weight: bold;
 }
+
 .shop-card figure {
   margin: 0;
   padding: 0;
   overflow: hidden;
   outline: none !important;
 }
+
 .shop-card figure img {
   width: 100%;
 }

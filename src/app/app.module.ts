@@ -15,8 +15,12 @@ import { GlobalTypesComponent } from './GlobalTypes/global-types.component';
 import { SidenavComponent } from './Components/SidenavComponent/sidenav.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { SignUpComponent } from './Components/SignUpComponent/sign-up-component.component';
+import { AboutComponent } from './Components/AboutComponent/about.component';
+import { CustomersComponent } from './Components/CustomersComponent/customers.component';
+import { ContactComponent } from './Components/ContactComponent/contact.component';
+import { EditCustomerComponent } from './Components/EditCustomer/edit-customer.component';
 
-/* Angular Material Imports */
+/* Angular Style Imports */
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -58,10 +62,13 @@ export function tokenGetter() {
     HeaderComponent,
     SignInDialogComponent,
     ShopDialogComponent,
+    AboutComponent,
+    CustomersComponent,
+    ContactComponent,
+    EditCustomerComponent,
   ],
   imports: [
     BrowserModule,
-    // AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
@@ -95,6 +102,18 @@ export function tokenGetter() {
       { path: 'shop', component: ShopComponent, canActivate: [AuthGuard] },
       { path: 'signin', component: SignInComponent },
       { path: 'signup', component: SignUpComponent },
+      { path: 'about', component: AboutComponent },
+      {
+        path: 'customers',
+        component: CustomersComponent,
+        canActivate: [AuthGuard],
+      },
+      { path: 'contact', component: ContactComponent },
+      {
+        path: 'edit-customer',
+        component: EditCustomerComponent,
+        canActivate: [AuthGuard],
+      },
     ]),
     JwtModule.forRoot({
       config: {

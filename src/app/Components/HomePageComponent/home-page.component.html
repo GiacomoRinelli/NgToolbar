@@ -26,9 +26,22 @@
       </div>
     </div>
     <div class="buttonWrapper">
-      <a routerLink="/signup">
-        <button class="btn btn_greenish">Sign Up</button>
-      </a>
+      <div *ngIf="!isUserAuthenticated()">
+        <a routerLink="/signup">
+          <button class="btn btn_greenish">Sign Up</button>
+        </a>
+      </div>
+      <div *ngIf="isUserAuthenticated()">
+        <a routerLink="/customers">
+          <button class="btn btn_greenish">Customers</button>
+        </a>
+      </div>
     </div>
   </div>
 </div>
+
+<!--
+  <a routerLink="/signup">
+        <button class="btn btn_greenish">Sign Up</button>
+      </a>
+-->

@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { SignInDialogComponent } from './SignInDialogComponent/sign-in-dialog/sign-in-dialog.component';
-import {
-  HttpClient,
-  HttpHeaders,
-  HttpErrorResponse,
-  HttpResponse,
-} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { CustomerService } from 'src/app/Services/CustomerService';
 import type { CustomerType } from 'src/app/GlobalTypes/global-types.component';
@@ -69,13 +64,16 @@ export class SignInComponent {
       })
       .subscribe({
         next: (response) => {
-          // logic for successful login
+          // extract token from response
           const token = (response as any).token;
+          // store token in local storage
           localStorage.setItem('jwt', token);
+          // get customer data from email
           this.getCustomerFromEmail(this.credentials.email);
+          // redirect to home page
           this.invalidLogin = false;
           this.router.navigate(['/']);
-        },  
+        },
         error: (error) => {
           console.log(error);
           this.openDialog('0.5s', '0.5s');
@@ -98,6 +96,8 @@ export class SignInComponent {
       )
       .subscribe((customer) => {
         this.customerService.setCustomer(customer);
+        //sace customer in local storage
+        localStorage.setItem('customer', JSON.stringify(customer));
       });
   }
 }

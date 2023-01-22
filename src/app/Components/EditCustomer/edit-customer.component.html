@@ -1,0 +1,124 @@
+<div class="topContainer">
+  <h1>Find Customer</h1>
+  <form class="idForm">
+    <mat-form-field color="warn">
+      <mat-label>Customer ID</mat-label>
+      <input
+        matInput
+        (input)="updateCustomerID($event)"
+        placeholder="Customer ID"
+        value="{{ customerIdInput }}"
+      />
+    </mat-form-field>
+    <button
+      class="searchButton"
+      mat-raised-button
+      color="accent"
+      (click)="getCustomer()"
+      [disabled]="!customerIdInput"
+    >
+      <i class="material-icons">search</i>
+    </button>
+  </form>
+</div>
+
+<div *ngIf="found">
+  <form [formGroup]="formGroup" (ngSubmit)="submitForm()" class="container">
+    <mat-form-field class="example-full-width" color="warn">
+      <mat-label>First Name</mat-label>
+      <input
+        matInput
+        placeholder="First Name"
+        formControlName="firstName"
+        required
+        value="{{ customer.firstName }}"
+      />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" color="warn">
+      <mat-label>Middle Name</mat-label>
+      <input
+        matInput
+        placeholder="Middle Name"
+        formControlName="middleName"
+        value="{{ customer.middleName }}"
+      />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" color="warn">
+      <mat-label>Last Name</mat-label>
+      <input
+        matInput
+        placeholder="Last Name"
+        formControlName="lastName"
+        required
+        value="{{ customer.lastName }}"
+      />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" color="warn">
+      <mat-label>Title</mat-label>
+      <input matInput placeholder="Title" formControlName="title" />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" color="warn">
+      <mat-label>Company Name</mat-label>
+      <input
+        matInput
+        placeholder="Company Name"
+        formControlName="companyName"
+        required
+        value="{{ customer.companyName }}"
+      />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" color="warn">
+      <mat-label>Sales Person</mat-label>
+      <input
+        matInput
+        placeholder="Sales Person"
+        formControlName="salesPerson"
+        required
+        value="{{ customer.salesPerson }}"
+      />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" color="warn">
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        placeholder="Email"
+        formControlName="emailAddress"
+        required
+        value="{{ customer.emailAddress }}"
+      />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" color="warn">
+      <mat-label>Phone</mat-label>
+      <input
+        matInput
+        placeholder="Phone"
+        formControlName="phone"
+        required
+        value="{{ customer.phone }}"
+      />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" color="warn">
+      <mat-label>Registration Date</mat-label>
+      <input
+        matInput
+        placeholder="Registration Date"
+        formControlName="modifiedDate"
+        value="{{ customer.modifiedDate }}"
+      />
+    </mat-form-field>
+    <button mat-raised-button color="accent" type="submit">
+      <i class="fa-solid fa-floppy-disk"></i>
+      Save Changes
+    </button>
+    <div></div>
+    <button
+      mat-raised-button
+      color="accent"
+      type="submit"
+      (click)="deleteCustomer()"
+    >
+      <i class="fa-solid fa-trash"></i>
+      Delete Customer
+    </button>
+  </form>
+</div>

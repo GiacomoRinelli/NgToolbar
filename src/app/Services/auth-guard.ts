@@ -34,10 +34,7 @@ export class AuthGuard implements CanActivate {
   /* The function checks if the user is authenticated by checking the local storage looking for the token.
      If the token is not found or the token is expired, the user is redirected to the sign in page.
   */
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): boolean {
+  canActivate(): boolean {
     const token = localStorage.getItem('jwt');
     if (token && !this.JwtHelper.isTokenExpired(token)) {
       return true;

@@ -2,7 +2,6 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import type { Product } from 'src/app/GlobalTypes/global-types.component';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-
 @Component({
   selector: 'app-shop',
   templateUrl: './shop.component.html',
@@ -15,7 +14,7 @@ export class ShopComponent implements OnInit {
 
   constructor(
     private changeDetector: ChangeDetectorRef,
-    private http: HttpClient,
+    private http: HttpClient
   ) {}
 
   /* Functions */
